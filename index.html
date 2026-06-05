@@ -639,7 +639,6 @@
         <strong>play.racsu.com</strong>
         <span id="ip-text">¡Haz click para copiar la IP!</span>
       </div>
-      <span class="card-arrow" id="copy-icon">📋</span>
     </div>
     <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px;">Compatible con Java y Bedrock Edition.</p>
   </div>
@@ -668,17 +667,14 @@
     const ip = "play.racsu.com";
     navigator.clipboard.writeText(ip).then(() => {
       const text = document.getElementById('ip-text');
-      const icon = document.getElementById('copy-icon');
       const originalText = text.innerText;
       
       text.innerText = "¡IP Copiada con éxito!";
       text.style.color = "#ffffff";
-      icon.innerText = "✅";
       
       setTimeout(() => {
         text.innerText = originalText;
         text.style.color = "";
-        icon.innerText = "📋";
       }, 2000);
     });
   }
