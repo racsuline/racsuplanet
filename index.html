@@ -67,6 +67,20 @@
       pointer-events: none;
     }
 
+    /* ─── AMBIENT COLOR GLOWS ─── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 45% 35% at 10% 20%, rgba(56, 130, 248, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 85% 45%, rgba(245, 200, 66, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 30% at 15% 70%, rgba(220, 60, 40, 0.045) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 85%, rgba(56, 130, 248, 0.04) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
     /* NAV BAR */
     .navbar {
       background: var(--ore-panel-dark);
@@ -149,14 +163,16 @@
       padding: 72px 20px 52px;
       overflow: hidden;
       animation: fadeIn .5s ease both;
+      background: url('resources/banner.png') center center / cover no-repeat;
     }
 
-    /* Sky island gradient behind hero */
+    /* Dark overlay so text stays readable over the banner */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
+        linear-gradient(180deg, rgba(26, 26, 26, 0.55) 0%, rgba(26, 26, 26, 0.75) 100%),
         radial-gradient(ellipse 80% 60% at 50% 40%, rgba(56, 189, 248, 0.06) 0%, transparent 70%),
         radial-gradient(ellipse 50% 30% at 50% 100%, rgba(90, 143, 41, 0.1) 0%, transparent 60%);
       pointer-events: none;
@@ -328,6 +344,31 @@
       max-width: 860px;
       margin: 0 auto;
       padding: 0 20px 72px;
+    }
+
+    /* Scrolling gradient accents on the page content */
+    .page-body::before,
+    .page-body::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(80px);
+    }
+
+    .page-body::before {
+      top: 200px;
+      left: -250px;
+      background: radial-gradient(circle, rgba(56, 130, 248, 0.08) 0%, transparent 70%);
+    }
+
+    .page-body::after {
+      top: 900px;
+      right: -250px;
+      background: radial-gradient(circle, rgba(220, 60, 40, 0.06) 0%, transparent 70%);
     }
 
     /* ─── SECTION ─── */
@@ -951,7 +992,7 @@
       </div>
     </div>
 
-    </div>
+  </div>
 
   </div><!-- /page-body -->
 
