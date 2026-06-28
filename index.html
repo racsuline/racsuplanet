@@ -66,22 +66,25 @@
     .navbar {
       background: var(--ore-panel-dark);
       border-bottom: 3px solid var(--ore-border-dark);
-      padding: 0 20px;
-      display: flex;
-      align-items: stretch;
       position: sticky;
       top: 0;
       z-index: 100;
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
       height: 48px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     .navbar-logo {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 0 14px 0 0;
-      border-right: 2px solid var(--ore-border);
-      margin-right: 4px;
+      padding: 0;
       text-decoration: none;
     }
 
@@ -102,9 +105,9 @@
 
     .nav-links {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       gap: 0;
-      flex: 1;
+      margin-left: auto;
     }
 
     .nav-link {
@@ -131,45 +134,7 @@
       border-bottom-color: var(--ore-orange);
     }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-left: auto;
-    }
 
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      background: rgba(90, 143, 41, 0.2);
-      border: 1px solid var(--ore-green);
-      font-size: 0.95rem;
-      color: var(--ore-green);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--ore-green);
-      box-shadow: 0 0 5px var(--ore-green);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .35
-      }
-    }
 
     /* HERO  */
     .hero {
@@ -326,13 +291,6 @@
       background: var(--ore-green-hover);
     }
 
-    .mc-btn.discord-btn {
-      background: var(--ore-blue);
-    }
-
-    .mc-btn.discord-btn:hover {
-      background: #6a76f4;
-    }
 
     .mc-btn.red-btn {
       background: var(--ore-red);
@@ -645,23 +603,17 @@
       letter-spacing: 1px;
     }
 
-    /* ─── DISCORD SECTION (embed + button) ─── */
+    /* ─── DISCORD SECTION ─── */
     .discord-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      align-items: start;
+      display: flex;
+      justify-content: center;
       max-width: 100%;
       margin: 0 auto;
     }
 
-    @media(max-width:640px) {
-      .discord-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .discord-embed-wrap {
+      width: 100%;
+      max-width: 480px;
       background: var(--ore-panel);
       border: 3px solid;
       border-top-color: #555;
@@ -676,55 +628,6 @@
       height: 300px;
       border: none;
       display: block;
-    }
-
-    .discord-info-panel {
-      background: var(--ore-panel);
-      border: 3px solid;
-      border-top-color: #555;
-      border-left-color: #555;
-      border-right-color: #222;
-      border-bottom-color: #222;
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .discord-info-panel .discord-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--ore-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .discord-info-panel .discord-icon svg {
-      width: 26px;
-      height: 26px;
-      color: #fff;
-    }
-
-    .discord-info-panel strong {
-      display: block;
-      font-size: 1.5rem;
-      color: var(--ore-text-bright);
-      text-shadow: 1px 1px 0 #000;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .discord-info-panel p {
-      font-size: 1.05rem;
-      color: var(--ore-text-dim);
-      line-height: 1.4;
-    }
-
-    .discord-info-panel .mc-btn {
-      width: 100%;
-      min-width: unset;
     }
 
     /* ─── SOCIAL ROW ─── */
@@ -823,22 +726,18 @@
 
   <!-- ═══ NAVBAR ═══ -->
   <nav class="navbar">
-    <a class="navbar-logo" href="#">
-      <img src="resources/logo.png" alt="Racsu Planet">
-      <span>Racsu Planet</span>
-    </a>
-    <div class="nav-links">
-      <a class="nav-link active" href="#">Inicio</a>
-      <a class="nav-link" href="#skyblock">Skyblock</a>
-      <a class="nav-link" href="#modpack">Modpack</a>
-      <a class="nav-link" href="#discord">Discord</a>
-      <a class="nav-link" href="https://tienda.racsu.com" target="_blank">Tienda</a>
-    </div>
-    <div class="nav-right">
-      <span class="status-badge">
-        <span class="status-dot"></span>
-        Online
-      </span>
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="#">
+        <img src="resources/logo.png" alt="Racsu Planet">
+        <span>Racsu Planet</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link active" href="#">Inicio</a>
+        <a class="nav-link" href="#skyblock">Skyblock</a>
+        <a class="nav-link" href="#modpack">Modpack</a>
+        <a class="nav-link" href="#discord">Discord</a>
+        <a class="nav-link" href="https://tienda.racsu.com" target="_blank">Tienda</a>
+      </div>
     </div>
   </nav>
 
@@ -863,13 +762,6 @@
           <span id="ip-text">Click para copiar la IP</span>
         </div>
       </div>
-      <a class="btn-secondary" href="#discord">
-        <svg width="16" height="16" viewBox="0 0 71 55" fill="currentColor">
-          <path
-            d="M60.1 4.9A58.5 58.5 0 0 0 45.5.4a.2.2 0 0 0-.2.1 40.7 40.7 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A38 38 0 0 0 25.4.5a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.6 4.9a.2.2 0 0 0-.1.1C1.5 18.1-1 30.9.3 43.6a.2.2 0 0 0 .1.1 58.8 58.8 0 0 0 17.7 8.9.2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4c.4-.3.7-.6 1.1-.9a.2.2 0 0 1 .2 0c11.5 5.3 24 5.3 35.4 0a.2.2 0 0 1 .2 0l1.1.9a.2.2 0 0 1 0 .4 36.2 36.2 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47 47 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.6 58.6 0 0 0 17.8-8.9.2.2 0 0 0 .1-.1c1.5-15.5-2.5-28.2-10.5-39.8a.2.2 0 0 0-.1-.1zM23.7 36c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.4 7.1 0 3.9-2.8 7.1-6.4 7.1zm23.6 0c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.4 7.1 0 3.9-2.8 7.1-6.4 7.1z" />
-        </svg>
-        Únete a la comunidad →
-      </a>
     </div>
   </div>
 
@@ -989,79 +881,56 @@
         </a>
       </div>
     </div>
-  </div>
 
-  <!-- ═══ DISCORD ═══ -->
-  <div class="section delay-4" id="discord" style="animation: fadeIn .5s .4s ease both;">
-    <div class="section-header">
-      <span class="line"></span>
-      <h2>Discord</h2>
-      <span class="line"></span>
-    </div>
-
-    <div class="discord-layout">
-      <!-- Widget embed -->
-      <div class="discord-embed-wrap">
-        <iframe src="https://discord.com/widget?id=1261810581304770610&theme=dark" allowtransparency="true"
-          frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-          title="Discord de Racsu Planet"></iframe>
+    <!-- ═══ DISCORD ═══ -->
+    <div class="section delay-4" id="discord" style="animation: fadeIn .5s .4s ease both;">
+      <div class="section-header">
+        <span class="line"></span>
+        <h2>Discord</h2>
+        <span class="line"></span>
       </div>
 
-      <!-- Info panel + buttons -->
-      <div class="discord-info-panel">
-        <div class="discord-icon">
-          <svg viewBox="0 0 71 55" fill="currentColor" width="26" height="26">
-            <path
-              d="M60.1 4.9A58.5 58.5 0 0 0 45.5.4a.2.2 0 0 0-.2.1 40.7 40.7 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A38 38 0 0 0 25.4.5a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.6 4.9a.2.2 0 0 0-.1.1C1.5 18.1-1 30.9.3 43.6a.2.2 0 0 0 .1.1 58.8 58.8 0 0 0 17.7 8.9.2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4c.4-.3.7-.6 1.1-.9a.2.2 0 0 1 .2 0c11.5 5.3 24 5.3 35.4 0a.2.2 0 0 1 .2 0l1.1.9a.2.2 0 0 1 0 .4 36.2 36.2 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47 47 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.6 58.6 0 0 0 17.8-8.9.2.2 0 0 0 .1-.1c1.5-15.5-2.5-28.2-10.5-39.8a.2.2 0 0 0-.1-.1zM23.7 36c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.4 7.1 0 3.9-2.8 7.1-6.4 7.1zm23.6 0c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.4 7.1 0 3.9-2.8 7.1-6.4 7.1z" />
-          </svg>
+      <div class="discord-layout">
+        <!-- Widget embed -->
+        <div class="discord-embed-wrap">
+          <iframe src="https://discord.com/widget?id=1261810581304770610&theme=dark" allowtransparency="true"
+            frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+            title="Discord de Racsu Planet"></iframe>
         </div>
-        <div>
-          <strong>Únete al Discord</strong>
-          <p>Sigue las novedades del servidor, participa en eventos, habla con la comunidad y recibe soporte directo del
-            staff.</p>
-        </div>
-        <a class="mc-btn discord-btn" href="https://discord.racsu.com/" target="_blank">
-          <svg viewBox="0 0 71 55" fill="currentColor" width="20" height="20">
-            <path
-              d="M60.1 4.9A58.5 58.5 0 0 0 45.5.4a.2.2 0 0 0-.2.1 40.7 40.7 0 0 0-1.8 3.7 54 54 0 0 0-16.2 0A38 38 0 0 0 25.4.5a.2.2 0 0 0-.2-.1A58.4 58.4 0 0 0 10.6 4.9a.2.2 0 0 0-.1.1C1.5 18.1-1 30.9.3 43.6a.2.2 0 0 0 .1.1 58.8 58.8 0 0 0 17.7 8.9.2.2 0 0 0 .2-.1 42 42 0 0 0 3.6-5.9.2.2 0 0 0-.1-.3 38.7 38.7 0 0 1-5.5-2.6.2.2 0 0 1 0-.4c.4-.3.7-.6 1.1-.9a.2.2 0 0 1 .2 0c11.5 5.3 24 5.3 35.4 0a.2.2 0 0 1 .2 0l1.1.9a.2.2 0 0 1 0 .4 36.2 36.2 0 0 1-5.5 2.6.2.2 0 0 0-.1.3 47 47 0 0 0 3.6 5.9.2.2 0 0 0 .2.1 58.6 58.6 0 0 0 17.8-8.9.2.2 0 0 0 .1-.1c1.5-15.5-2.5-28.2-10.5-39.8a.2.2 0 0 0-.1-.1zM23.7 36c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.4 7.1 0 3.9-2.8 7.1-6.4 7.1zm23.6 0c-3.5 0-6.4-3.2-6.4-7.1s2.8-7.1 6.4-7.1c3.6 0 6.5 3.2 6.4 7.1 0 3.9-2.8 7.1-6.4 7.1z" />
+      </div>
+    </div>
+
+    <!-- ═══ SOCIAL / OTROS LINKS ═══ -->
+    <div class="section delay-5" style="animation: fadeIn .5s .5s ease both;">
+      <div class="section-header">
+        <span class="line"></span>
+        <h2>Links</h2>
+        <span class="line"></span>
+      </div>
+      <div class="social-row">
+        <a class="mc-btn gray-btn" href="https://tienda.racsu.com" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
           </svg>
-          Discord Oficial
+          Tienda del Servidor
+        </a>
+        <a class="mc-btn red-btn" href="https://www.youtube.com/@RacsuPlanet" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+          Canal de YouTube
         </a>
       </div>
     </div>
-  </div>
 
-  <!-- ═══ SOCIAL / OTROS LINKS ═══ -->
-  <div class="section delay-5" style="animation: fadeIn .5s .5s ease both;">
-    <div class="section-header">
-      <span class="line"></span>
-      <h2>Links</h2>
-      <span class="line"></span>
-    </div>
-    <div class="social-row">
-      <a class="mc-btn gray-btn" href="https://tienda.racsu.com" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <circle cx="9" cy="21" r="1" />
-          <circle cx="20" cy="21" r="1" />
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-        </svg>
-        Tienda del Servidor
-      </a>
-      <a class="mc-btn red-btn" href="https://www.youtube.com/@RacsuPlanet" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-        </svg>
-        Canal de YouTube
-      </a>
-    </div>
-  </div>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer>
-    <p>© 2026 Racsu Planet. Todos los derechos reservados.</p>
-    <p>Los servidores de Racsu no están afiliados a Mojang AB ni a Microsoft.</p>
-  </footer>
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <p>© 2026 Racsu Planet. Todos los derechos reservados.</p>
+      <p>Los servidores de Racsu no están afiliados a Mojang AB ni a Microsoft.</p>
+    </footer>
 
   </div><!-- /page-body -->
 
