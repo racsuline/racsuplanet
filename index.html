@@ -35,6 +35,11 @@
       --ore-shadow: rgba(0, 0, 0, 0.5);
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 60px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -954,14 +959,15 @@
     const navLinks = document.querySelectorAll('.nav-link');
     function updateNav() {
       const scrollY = window.scrollY;
-      // Only leave "Inicio" if user has scrolled at least 200px
       if (scrollY < 200) {
         navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'));
         return;
       }
       let current = '';
+      const navbarHeight = document.querySelector('.navbar').offsetHeight;
       sections.forEach(s => {
-        if (scrollY >= s.offsetTop - 120) current = s.id;
+        const rect = s.getBoundingClientRect();
+        if (rect.top <= navbarHeight + 60) current = s.id;
       });
       navLinks.forEach(l => {
         const href = l.getAttribute('href');
