@@ -549,40 +549,59 @@
       border-right-color: #222;
       border-bottom-color: #222;
       overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 
-    .modpack-header {
+    @media(max-width:600px) {
+      .modpack-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .modpack-image {
+      position: relative;
+      overflow: hidden;
       background: linear-gradient(135deg, #0c4a6e 0%, #1e1e1e 100%);
-      padding: 20px 22px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      border-bottom: 3px solid var(--ore-border-dark);
+      min-height: 240px;
     }
 
-    .modpack-icon {
-      width: 56px;
-      height: 56px;
-      border: 3px solid rgba(255, 255, 255, 0.15);
-      flex-shrink: 0;
+    .modpack-image img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       image-rendering: pixelated;
-      background: rgba(0, 0, 0, 0.3);
+      display: block;
+      padding: 24px;
     }
 
-    .modpack-header-info strong {
+    .modpack-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .modpack-content strong {
       display: block;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       color: var(--ore-sky);
       text-shadow: 2px 2px 0 #000;
       letter-spacing: 1px;
     }
 
-    .modpack-header-info span {
+    .modpack-content .modpack-subtitle {
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.6);
       display: block;
-      margin-top: 2px;
+      margin-top: -8px;
+    }
+
+    .modpack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
     .modpack-tag {
@@ -594,43 +613,17 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-top: 6px;
     }
 
-    .modpack-body {
-      padding: 18px 22px;
-    }
-
-    .modpack-body p {
-      font-size: 1.1rem;
+    .modpack-content p {
+      font-size: 1.05rem;
       color: var(--ore-text-dim);
       line-height: 1.45;
-      margin-bottom: 16px;
     }
 
-    .modpack-stats {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-
-    .modpack-stat {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .modpack-stat strong {
-      font-size: 1.5rem;
-      color: var(--ore-text-bright);
-      text-shadow: 1px 1px 0 #000;
-    }
-
-    .modpack-stat span {
-      font-size: 0.9rem;
-      color: var(--ore-text-dim);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .modpack-content .mc-btn {
+      min-width: unset;
+      width: 100%;
     }
 
     /* ─── DISCORD SECTION ─── */
@@ -945,32 +938,27 @@
       </div>
 
       <div class="modpack-card">
-        <div class="modpack-header">
-          <img class="modpack-icon" src="resources/logoMDR.png" alt="Racsu Planet+ icon">
-          <div class="modpack-header-info">
-            <strong>Racsu Planet+</strong>
-            <span>Modpack oficial del servidor — Fabric · MC 26.1.2</span>
-            <div>
-              <span class="modpack-tag" style="margin-left:6px;">Optimización</span>
-              <span class="modpack-tag" style="margin-left:6px;">Nueva Interfaz</span>
-              <span class="modpack-tag" style="margin-left:6px;">Accesos Rápidos</span>
-            </div>
-          </div>
+        <div class="modpack-image">
+          <img src="resources/logoMDR.png" alt="Racsu Planet+ icon">
         </div>
-        <div class="modpack-body">
+        <div class="modpack-content">
+          <strong>Racsu Planet+</strong>
+          <span class="modpack-subtitle">Modpack oficial del servidor — Fabric · MC 26.1.2</span>
+          <div class="modpack-tags">
+            <span class="modpack-tag">Optimización</span>
+            <span class="modpack-tag">Nueva Interfaz</span>
+            <span class="modpack-tag">Accesos Rápidos</span>
+          </div>
           <p>
             Un cliente personalizado con <strong style="color:var(--ore-text);">70 mods</strong> cuidadosamente
-            seleccionados para mejorar tu experiencia en el servidor: mejor rendimiento, shaders, animaciones, voz de
-            proximidad y mucho más. Compatible con Fabric en Minecraft Java Edition.
+            seleccionados para mejorar tu experiencia en el servidor.
           </p>
+          <a class="mc-btn sky-btn" href="https://modrinth.com/modpack/racsu-planet" target="_blank">
+            <img src="resources/modrinth.svg" alt="Modrinth" width="20" height="20"
+              style="filter:brightness(0) invert(1); flex-shrink:0;">
+            Descargar en Modrinth →
+          </a>
         </div>
-        <a class="mc-btn sky-btn" href="https://modrinth.com/modpack/racsu-planet" target="_blank"
-          style="min-width:unset; width:100%;">
-          <!-- Reemplaza "resources/modrinth.svg" con la ruta a tu archivo SVG de Modrinth -->
-          <img src="resources/modrinth.svg" alt="Modrinth" width="20" height="20"
-            style="filter:brightness(0) invert(1); flex-shrink:0;">
-          Descargar en Modrinth →
-        </a>
       </div>
     </div>
 
