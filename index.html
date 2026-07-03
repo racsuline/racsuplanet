@@ -429,6 +429,7 @@
       padding: 18px 22px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
       cursor: copy;
       position: relative;
@@ -464,8 +465,13 @@
       color: #fff;
     }
 
+    .connect-card .cc-info {
+      text-align: center;
+    }
+
     .connect-card .cc-info strong {
       display: block;
+      align-items: center;
       font-size: 1.6rem;
       color: #fff;
       text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
@@ -508,8 +514,10 @@
       border-bottom-color: #222;
       padding: 16px;
       display: flex;
+      flex-direction: row;
       gap: 16px;
       align-items: center;
+      overflow: hidden;
       transition: transform 0.2s, filter 0.2s;
       position: relative;
     }
@@ -528,8 +536,8 @@
     }
 
     .main-feat-image {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       flex-shrink: 0;
       border: 3px solid var(--ore-border-dark);
       background: #111;
@@ -548,6 +556,7 @@
     }
 
     .main-feat-text {
+      padding: 0;
       display: flex;
       flex-direction: column;
       gap: 2px;
@@ -579,16 +588,20 @@
       line-height: 1.35;
     }
 
-    @media(max-width: 480px) {
+    @media(max-width: 600px) {
       .main-feat-card {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
       }
       .main-feat-image {
         width: 100%;
         height: auto;
         aspect-ratio: 1;
+        border-right: none;
+        border-bottom: 3px solid var(--ore-border-dark);
+      }
+      .main-feat-text {
+        padding-top: 8px;
       }
     }
 
@@ -611,10 +624,10 @@
       border-left-color: #555;
       border-right-color: #222;
       border-bottom-color: #222;
-      padding: 16px 18px;
+      padding: 20px 22px;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
+      gap: 0;
     }
 
     .feat-icon {
@@ -942,12 +955,6 @@
 
     <div class="hero-btns">
       <div class="connect-card" onclick="copyIP()" id="connect-card" style="min-width:280px; display:inline-flex;">
-        <div class="cc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <rect x="2" y="2" width="20" height="20" rx="2" />
-            <path d="M8 12h8M12 8v8" />
-          </svg>
-        </div>
         <div class="cc-info">
           <strong>play.racsu.com</strong>
           <span id="ip-text">Click para copiar la IP</span>
@@ -995,28 +1002,24 @@
       <!-- Other Features -->
       <div class="features-grid">
         <div class="feat-card">
-          <div class="feat-icon">🌾</div>
           <div class="feat-text">
             <strong>Economía y Farming</strong>
             <span>Cultiva recursos, vendelos en el mercado y domina la economía.</span>
           </div>
         </div>
         <div class="feat-card">
-          <div class="feat-icon">🏆</div>
           <div class="feat-text">
             <strong>Clasificaciones</strong>
             <span>Sube en el ranking de islas y demuestra quién manda en el cielo.</span>
           </div>
         </div>
         <div class="feat-card">
-          <div class="feat-icon">⚡</div>
           <div class="feat-text">
             <strong>Java &amp; Bedrock</strong>
             <span>Conectate desde cualquier edición en play.racsu.com</span>
           </div>
         </div>
         <div class="feat-card">
-          <div class="feat-icon">🎁</div>
           <div class="feat-text">
             <strong>Cosméticos y Rangos</strong>
             <span>Personaliza tu experiencia con rangos exclusivos en la tienda.</span>
@@ -1024,29 +1027,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ═══ CONECTAR ═══ -->
-    <div class="section delay-2" style="animation: fadeIn .5s .2s ease both;">
-      <div class="section-header">
-        <span class="line"></span>
-        <h2>Conectate</h2>
-        <span class="line"></span>
-      </div>
-
-      <div class="connect-card" onclick="copyIP()" id="connect-card-2">
-        <div class="cc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </div>
-        <div class="cc-info">
-          <strong>play.racsu.com</strong>
-          <span id="ip-text-2">Click para copiar la IP</span>
-        </div>
-      </div>
-      <p class="mc-tooltip">Compatible con Java y Bedrock Edition</p>
-    </div>
-
     <!-- ═══ MODPACK ═══ -->
     <div class="section delay-3" id="modpack" style="animation: fadeIn .5s .3s ease both;">
       <div class="section-header">
