@@ -486,6 +486,112 @@
     }
 
     /* ─── FEATURES GRID (2-col on desktop) ─── */
+    .main-features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    @media(max-width: 768px) {
+      .main-features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .main-feat-card {
+      background: var(--ore-panel);
+      border: 3px solid;
+      border-top-color: #555;
+      border-left-color: #555;
+      border-right-color: #222;
+      border-bottom-color: #222;
+      padding: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      transition: transform 0.2s, filter 0.2s;
+      position: relative;
+    }
+
+    .main-feat-card:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .main-feat-card:hover::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+      pointer-events: none;
+    }
+
+    .main-feat-image {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+      border: 3px solid var(--ore-border-dark);
+      background: #111;
+      overflow: hidden;
+    }
+
+    .main-feat-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .main-feat-card:hover .main-feat-image img {
+      transform: scale(1.05);
+    }
+
+    .main-feat-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .main-feat-text strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--ore-text-bright);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px 0 #000;
+      line-height: 1.1;
+    }
+
+    .main-feat-subtitle {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--ore-text-dim);
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .main-feat-desc {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--ore-text);
+      line-height: 1.35;
+    }
+
+    @media(max-width: 480px) {
+      .main-feat-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .main-feat-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+      }
+    }
+
     .features-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -861,21 +967,33 @@
         <span class="line"></span>
       </div>
 
+      <!-- Main Game Modes (Islas & Duelos) -->
+      <div class="main-features-grid">
+        <div class="main-feat-card">
+          <div class="main-feat-image">
+            <img src="resources/islas.png" alt="Islas">
+          </div>
+          <div class="main-feat-text">
+            <strong>Islas</strong>
+            <span class="main-feat-subtitle">Tu aventura en el cielo</span>
+            <span class="main-feat-desc">Empieza desde cero en tu isla flotante y construye tu propio mundo.</span>
+          </div>
+        </div>
+
+        <div class="main-feat-card">
+          <div class="main-feat-image">
+            <img src="resources/duelos.png" alt="Duelos">
+          </div>
+          <div class="main-feat-text">
+            <strong>Duelos</strong>
+            <span class="main-feat-subtitle">Compite en la arena</span>
+            <span class="main-feat-desc">Compite en los duelos y en el koth para demostrar que eres el mejor.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Features -->
       <div class="features-grid">
-        <div class="feat-card">
-          <div class="feat-icon">🏝️</div>
-          <div class="feat-text">
-            <strong>Isla Propia</strong>
-            <span>Empieza desde cero en tu isla flotante y construye tu propio mundo.</span>
-          </div>
-        </div>
-        <div class="feat-card">
-          <div class="feat-icon">⚔️</div>
-          <div class="feat-text">
-            <strong>PvP</strong>
-            <span>Compite en los duelos y en el koth para demostrar que eres el mejor.</span>
-          </div>
-        </div>
         <div class="feat-card">
           <div class="feat-icon">🌾</div>
           <div class="feat-text">
