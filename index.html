@@ -38,6 +38,8 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 60px;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     * {
@@ -52,6 +54,7 @@
       font-family: 'VT323', monospace;
       min-height: 100vh;
       overflow-x: hidden;
+      width: 100%;
       image-rendering: pixelated;
     }
 
@@ -344,6 +347,7 @@
       max-width: 860px;
       margin: 0 auto;
       padding: 0 20px 72px;
+      overflow-x: hidden;
     }
 
     /* Scrolling gradient accents on the page content */
@@ -427,6 +431,7 @@
       border-right-color: #2a5010;
       border-bottom-color: #2a5010;
       padding: 18px 22px;
+      width: min(100%, 280px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -779,7 +784,7 @@
       gap: 40px;
     }
 
-    @media(max-width:560px) {
+    @media(max-width:768px) {
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -905,9 +910,15 @@
       .modpack-stats {
         gap: 14px;
       }
+
+      .section-header h2 {
+        font-size: 1.35rem;
+        white-space: normal;
+        text-align: center;
+      }
     }
 
-    @media(max-width:420px) {
+    @media(max-width:540px) {
       .nav-links {
         display: none;
       }
@@ -943,7 +954,7 @@
     <p class="tagline"><span class="hl">Servidor de Minecraft</span> | Java &amp; Bedrock</p>
 
     <div class="hero-btns">
-      <div class="connect-card" onclick="copyIP()" id="connect-card" style="min-width:280px; display:inline-flex;">
+      <div class="connect-card" onclick="copyIP()" id="connect-card">
         <div class="cc-info">
           <strong>play.racsu.com</strong>
           <span id="ip-text">Click para copiar la IP</span>
@@ -1043,7 +1054,7 @@
           <a class="mc-btn sky-btn" href="https://modrinth.com/modpack/racsu-planet" target="_blank">
             <img src="resources/modrinth.svg" alt="Modrinth" width="20" height="20"
               style="filter:brightness(0) invert(1); flex-shrink:0;">
-            Descargar en Modrinth →
+            Descargar en Modrinth
           </a>
         </div>
       </div>
