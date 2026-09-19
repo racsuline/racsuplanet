@@ -4,7 +4,6 @@
 async function fetchServerStatus() {
   const statusIndicator = document.getElementById('server-status-indicator');
   const playersEl = document.getElementById('server-status-players');
-  const versionEl = document.getElementById('server-status-version');
   const dotEl = document.getElementById('status-dot');
 
   if (!statusIndicator) return;
@@ -33,11 +32,6 @@ async function fetchServerStatus() {
         const max = (data.players && data.players.max !== undefined) ? data.players.max : 100;
         playersEl.innerHTML = `<strong>${count}</strong>/${max} Jugadores`;
       }
-      if (versionEl && data.version) {
-        // Strip or format internal server engine names if desired
-        const cleanVer = data.version.replace('AdvancedSlimePaper', 'MC').trim();
-        versionEl.textContent = cleanVer || 'MC 26.2';
-      }
     } else {
       if (dotEl) dotEl.className = 'status-dot offline';
       if (statusIndicator) {
@@ -46,12 +40,12 @@ async function fetchServerStatus() {
       if (playersEl) playersEl.textContent = 'Servidor reiniciando';
     }
   } catch (err) {
-    // Elegant fallback on network or API failure
+    // Fallback gracefully on network timeout or failure
     if (dotEl) dotEl.className = 'status-dot online';
     if (statusIndicator) {
-      statusIndicator.innerHTML = '<span class="status-dot online"></span> <span>play.racsu.com</span>';
+      statusIndicator.innerHTML = '<span class="status-dot online"></span> <span>Online</span>';
     }
-    if (playersEl) playersEl.textContent = 'Java & Bedrock';
+    if (playersEl) playersEl.textContent = 'play.racsu.com';
   }
 }
 
@@ -76,12 +70,12 @@ async function fetchDiscordStatus() {
       discordEl.textContent = `${data.presence_count} en Discord`;
     }
   } catch (e) {
-    // Discord widget may be disabled or blocked; fallback gracefully
+    // Discord widget may be blocked; fallback silently
   }
 }
 
 // 3. COPY IP / PORT UTILITY
-function copyText(text, elementId, defaultI18nKey = 'hero_ip_text') {
+function copyText(text, elementId) {
   navigator.clipboard.writeText(text).then(() => {
     const el = document.getElementById(elementId);
     if (!el) return;
@@ -137,149 +131,17 @@ function initTrailerFacade() {
     const videoId = 'ZsAJiZ42qGc';
     facade.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0" title="Tráiler de Racsu Planet" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
   });
-}
 
-// 6. ACCESSIBLE GALLERY
-let currentSlide = 0;
-let totalSlides = 0;
-
-async function initGallery() {
-  const slider = document.getElementById('gallery-slider');
-  if (!slider) return;
-
-  try {
-    const res = await fetch('/data/galeria.json');
-    if (!res.ok) return;
-    const items = await res.json();
-    if (!items || items.length === 0) return;
-
-    totalSlides = items.length;
-    slider.innerHTML = items.map((item, idx) => `
-      <div class="gallery-slide" role="group" aria-roledescription="slide" aria-label="${idx + 1} de ${items.length}">
-        <img src="${item.src}" alt="${item.alt || item.titulo}" loading="lazy" width="800" height="450">
-        <div class="gallery-caption">
-          <h4>${item.titulo}</h4>
-          <p>${item.descripcion}</p>
-        </div>
-      </div>
-    `).join('');
-
-    updateGallerySlide();
-  } catch (e) {
-    console.warn('Gallery loading skipped', e);
-  }
-}
-
-function updateGallerySlide() {
-  const slider = document.getElementById('gallery-slider');
-  if (!slider) return;
-  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-function nextGallerySlide() {
-  if (totalSlides === 0) return;
-  currentSlide = (currentSlide + 1) % totalSlides;
-  updateGallerySlide();
-}
-
-function prevGallerySlide() {
-  if (totalSlides === 0) return;
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  updateGallerySlide();
-}
-
-// 7. EVENTS & SEASONS (HIDDEN IF EMPTY)
-async function initEventos() {
-  const section = document.getElementById('eventos-section');
-  const container = document.getElementById('eventos-list');
-  if (!section || !container) return;
-
-  try {
-    const res = await fetch('/data/eventos.json');
-    if (!res.ok) {
-      section.style.display = 'none';
-      return;
+  // Accessible keyboard activation (Enter / Space)
+  facade.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      facade.click();
     }
-    const eventos = await res.json();
-    if (!eventos || eventos.length === 0) {
-      section.style.display = 'none';
-      return;
-    }
-
-    eventos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-
-    container.innerHTML = eventos.map(ev => `
-      <div class="step-card">
-        <span class="step-badge">${ev.fecha}</span>
-        <h3>${ev.titulo}</h3>
-        <p>${ev.descripcion}</p>
-      </div>
-    `).join('');
-    section.style.display = 'block';
-  } catch (e) {
-    section.style.display = 'none';
-  }
+  });
 }
 
-// 8. RANKING DE ISLAS
-async function initRanking() {
-  const tbody = document.getElementById('ranking-tbody');
-  if (!tbody) return;
-
-  try {
-    const res = await fetch('/data/ranking.json');
-    if (!res.ok) return;
-    const data = await res.json();
-    if (!data || !data.top_islas) return;
-
-    tbody.innerHTML = data.top_islas.map(isla => {
-      let badgeClass = '';
-      if (isla.puesto === 1) badgeClass = 'rank-1';
-      else if (isla.puesto === 2) badgeClass = 'rank-2';
-      else if (isla.puesto === 3) badgeClass = 'rank-3';
-
-      return `
-        <tr>
-          <td><span class="rank-badge ${badgeClass}">#${isla.puesto}</span></td>
-          <td><strong>${isla.nombre}</strong></td>
-          <td>${isla.lider}</td>
-          <td style="color:var(--ore-gold);">★ ${isla.nivel.toLocaleString()}</td>
-          <td>${isla.miembros}</td>
-        </tr>
-      `;
-    }).join('');
-  } catch (e) {
-    console.warn('Ranking load skipped', e);
-  }
-}
-
-// 9. NOVEDADES
-async function initNovedades(limit = 3) {
-  const container = document.getElementById('novedades-list');
-  if (!container) return;
-
-  try {
-    const res = await fetch('/data/novedades.json');
-    if (!res.ok) return;
-    let news = await res.json();
-    if (!news || news.length === 0) return;
-
-    if (limit > 0) news = news.slice(0, limit);
-
-    container.innerHTML = news.map(item => `
-      <article class="news-card">
-        <span class="news-date">${item.fecha} · ${item.categoria || 'Servidor'}</span>
-        <h3>${item.titulo}</h3>
-        <p>${item.resumen}</p>
-        ${item.enlace ? `<a href="${item.enlace}" class="btn-secondary" style="margin-top:auto; font-size:1rem; color:var(--ore-sky);">Leer más ➔</a>` : ''}
-      </article>
-    `).join('');
-  } catch (e) {
-    console.warn('Novedades load skipped', e);
-  }
-}
-
-// 10. VOTING PLATFORMS
+// 6. VOTING PLATFORMS (/votar)
 async function initVotacion() {
   const container = document.getElementById('vote-grid-container');
   if (!container) return;
@@ -304,7 +166,7 @@ async function initVotacion() {
   }
 }
 
-// 11. REGLAS
+// 7. REGLAS (/reglas)
 async function initReglas() {
   const container = document.getElementById('reglas-container');
   if (!container) return;
@@ -372,50 +234,35 @@ function renderReglas(categorias) {
   `).join('');
 }
 
-// 12. STAFF (HIDDEN IF EMPTY)
-async function initStaff() {
-  const section = document.getElementById('staff-section');
-  const container = document.getElementById('staff-grid');
-  if (!section || !container) return;
+// 8. MOBILE MENU NAVIGATION TOGGLE
+function initMobileNav() {
+  const toggleBtn = document.getElementById('nav-toggle-btn');
+  const navLinks = document.getElementById('nav-links');
+  if (!toggleBtn || !navLinks) return;
 
-  try {
-    const res = await fetch('/data/staff.json');
-    if (!res.ok) {
-      section.style.display = 'none';
-      return;
-    }
-    const staff = await res.json();
-    if (!staff || staff.length === 0) {
-      section.style.display = 'none';
-      return;
-    }
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', !isExpanded);
+    navLinks.classList.toggle('nav-links-open');
+  });
 
-    container.innerHTML = staff.map(member => `
-      <div class="feat-card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px;">
-        <img src="https://mc-heads.net/avatar/${member.username}/80" alt="${member.username}" width="80" height="80" loading="lazy" style="image-rendering:pixelated; border:2px solid var(--ore-border);">
-        <strong style="font-size:1.3rem; color:var(--ore-text-bright);">${member.username}</strong>
-        <span style="color:var(--ore-gold);">${member.rol || 'Staff'}</span>
-      </div>
-    `).join('');
-    section.style.display = 'block';
-  } catch (e) {
-    section.style.display = 'none';
-  }
+  // Close menu on link click (mobile)
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('nav-links-open');
+    });
+  });
 }
 
 // DOM READY INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
   fetchServerStatus();
   fetchDiscordStatus();
-  // Refresh live server status every 60 seconds politely
   setInterval(fetchServerStatus, 60000);
 
+  initMobileNav();
   initTrailerFacade();
-  initGallery();
-  initEventos();
-  initRanking();
-  initNovedades();
   initVotacion();
   initReglas();
-  initStaff();
 });
