@@ -740,20 +740,6 @@ body::after {
   margin-left: 8px;
 }
 
-.guide-subtip {
-  text-align: center;
-  margin-top: var(--sp-4);
-  font-size: 1.1rem;
-  color: var(--ore-text-dim);
-}
-
-.guide-subtip a {
-  color: var(--ore-sky);
-  text-decoration: none;
-}
-.guide-subtip a:hover {
-  text-decoration: underline;
-}
 
 .guide-accordion {
   margin-top: var(--sp-4);

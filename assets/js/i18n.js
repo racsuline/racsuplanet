@@ -54,8 +54,6 @@ const I18N_TRANSLATIONS = {
     console_dns_desc: "También puedes conectar cambiando la DNS primaria de tu consola por una IP pública de BedrockConnect (ej. 104.238.130.180). Al unirte a cualquier servidor destacado oficial se abrirá una lista para escribir play.racsu.com. Este método puede verse afectado si tu proveedor bloquea DNS externas, por lo que recomendamos BedrockTogether.",
     guide_copy_ip: "Copiar IP",
     guide_copy_port: "Copiar Puerto",
-    guide_modpack_tip: "Paso opcional: Instala el modpack oficial Racsu Planet+ para optimizar tu rendimiento.",
-    guide_modpack_btn: "Ver Modpack",
 
     trailer_title: "Tráiler Oficial",
     trailer_subtitle: "Echa un vistazo a la experiencia que te espera en Racsu Planet",
@@ -166,8 +164,6 @@ const I18N_TRANSLATIONS = {
     console_dns_desc: "You can also connect by setting your console's primary DNS to a public BedrockConnect IP (e.g. 104.238.130.180). Joining any official featured server will bring up a menu to enter play.racsu.com. This method can be blocked by certain ISPs or routers, which is why we recommend BedrockTogether.",
     guide_copy_ip: "Copy IP",
     guide_copy_port: "Copy Port",
-    guide_modpack_tip: "Optional step: Install the official Racsu Planet+ modpack for boosted performance.",
-    guide_modpack_btn: "View Modpack",
 
     trailer_title: "Official Trailer",
     trailer_subtitle: "Take a quick look at the adventure awaiting you in Racsu Planet",
@@ -278,8 +274,6 @@ const I18N_TRANSLATIONS = {
     console_dns_desc: "Você também pode se conectar alterando o DNS primário do console para um IP público do BedrockConnect (ex: 104.238.130.180). Ao entrar em qualquer servidor em destaque oficial, abrirá um menu para digitar play.racsu.com. Esse método pode ser bloqueado por certos provedores, por isso recomendamos o BedrockTogether.",
     guide_copy_ip: "Copiar IP",
     guide_copy_port: "Copiar Porta",
-    guide_modpack_tip: "Passo opcional: Instale o modpack oficial Racsu Planet+ para máximo desempenho.",
-    guide_modpack_btn: "Ver Modpack",
 
     trailer_title: "Trailer Oficial",
     trailer_subtitle: "Veja uma prévia da aventura que te espera no Racsu Planet",
