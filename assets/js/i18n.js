@@ -63,13 +63,16 @@ const I18N_TRANSLATIONS = {
     modpack_tag_ui: "Nueva Interfaz",
     modpack_tag_anim: "Animaciones",
     modpack_desc: 'Pack personalizado con <strong style="color:var(--ore-text-bright);">+90 mods</strong> seleccionados para optimizar FPS, añadir shaders y renovar la estética visual.',
-    modpack_download_text: "Descargar en Modrinth",
+    modpack_download_text: "Descargar Modpack en Modrinth",
 
     community_title: "Comunidad y Votación",
     community_subtitle: "Únete a nuestro Discord y vota para ganar recompensas",
-    community_discord_cta: "Unirse al Discord Oficial",
-    community_modrinth_cta: "Seguir Servidor en Modrinth",
-    community_vote_btn: "Votar y ganar 50 estrellas por voto ➔",
+    community_discord_title: "Discord de Racsu Planet",
+    community_discord_desc: "Conoce a otros jugadores, comparte capturas de tu isla y participa en sorteos y torneos de la comunidad.",
+    community_discord_cta: "Unirse al Discord Oficial ➔",
+    community_vote_title: "⭐ Vota por Racsu Planet",
+    community_vote_desc: "Apoya al servidor votando en nuestras 10 plataformas asociadas y recibe 50 estrellas por voto en tu cuenta de juego.",
+    community_vote_btn: "Ver sitios de votación ➔",
 
     rules_title: "Reglas del Servidor",
     rules_subtitle: "Normativa básica para mantener una comunidad sana, justa y respetuosa",
@@ -82,6 +85,9 @@ const I18N_TRANSLATIONS = {
 
     vote_page_title: "Vota por Racsu Planet",
     vote_page_subtitle: "Apoya al servidor y consigue 50 estrellas por voto en cada plataforma:",
+    vote_modrinth_title: "¿Utilizas Modrinth?",
+    vote_modrinth_desc: "También puedes apoyarnos siguiendo y guardando el servidor en Modrinth para enterarte de todas nuestras novedades.",
+    vote_modrinth_btn: "Guardar Servidor en Modrinth",
 
     footer_brand_desc: "Servidor de Minecraft Skyblock en español compatible con Java y Bedrock Edition.",
     footer_links_title: "Links Rápidos",
@@ -153,13 +159,16 @@ const I18N_TRANSLATIONS = {
     modpack_tag_ui: "New Interface",
     modpack_tag_anim: "Animations",
     modpack_desc: 'Custom pack with <strong style="color:var(--ore-text-bright);">+90 mods</strong> selected to optimize FPS, add shaders, and refresh the UI.',
-    modpack_download_text: "Download on Modrinth",
+    modpack_download_text: "Download Modpack on Modrinth",
 
     community_title: "Community & Voting",
     community_subtitle: "Join our Discord and vote to earn in-game rewards",
-    community_discord_cta: "Join Official Discord",
-    community_modrinth_cta: "Follow Server on Modrinth",
-    community_vote_btn: "Vote and earn 50 stars per vote ➔",
+    community_discord_title: "Racsu Planet Discord",
+    community_discord_desc: "Meet other players, share screenshots of your island, and take part in community giveaways and tournaments.",
+    community_discord_cta: "Join Official Discord ➔",
+    community_vote_title: "⭐ Vote for Racsu Planet",
+    community_vote_desc: "Support the server by voting on our 10 partner platforms and receive 50 stars per vote on your account.",
+    community_vote_btn: "View voting sites ➔",
 
     rules_title: "Server Rules",
     rules_subtitle: "Essential guidelines to keep our community fair, safe, and fun",
@@ -172,6 +181,9 @@ const I18N_TRANSLATIONS = {
 
     vote_page_title: "Vote for Racsu Planet",
     vote_page_subtitle: "Support the server and get 50 stars per vote on each platform:",
+    vote_modrinth_title: "Do you use Modrinth?",
+    vote_modrinth_desc: "You can also support us by following and saving the server on Modrinth to stay tuned for updates.",
+    vote_modrinth_btn: "Save Server on Modrinth",
 
     footer_brand_desc: "Minecraft Skyblock server compatible with Java and Bedrock Edition.",
     footer_links_title: "Quick Links",
@@ -243,13 +255,16 @@ const I18N_TRANSLATIONS = {
     modpack_tag_ui: "Nova Interface",
     modpack_tag_anim: "Animações",
     modpack_desc: 'Pack personalizado com <strong style="color:var(--ore-text-bright);">+90 mods</strong> selecionados para otimizar FPS, shaders e visual.',
-    modpack_download_text: "Baixar no Modrinth",
+    modpack_download_text: "Baixar Modpack no Modrinth",
 
     community_title: "Comunidade e Votação",
     community_subtitle: "Entre no nosso Discord e vote para ganhar recompensas",
-    community_discord_cta: "Entrar no Discord Oficial",
-    community_modrinth_cta: "Seguir Servidor no Modrinth",
-    community_vote_btn: "Votar e ganhar 50 estrelas por voto ➔",
+    community_discord_title: "Discord do Racsu Planet",
+    community_discord_desc: "Conheça outros jogadores, compartilhe fotos da sua ilha e participe de sorteios e torneios da comunidade.",
+    community_discord_cta: "Entrar no Discord Oficial ➔",
+    community_vote_title: "⭐ Vote no Racsu Planet",
+    community_vote_desc: "Apoie o servidor votando em nossas 10 plataformas parceiras e ganhe 50 estrelas por voto na sua conta.",
+    community_vote_btn: "Ver sites de votação ➔",
 
     rules_title: "Regras do Servidor",
     rules_subtitle: "Diretrizes essenciais para manter uma comunidade segura e justa",
@@ -262,6 +277,9 @@ const I18N_TRANSLATIONS = {
 
     vote_page_title: "Vote no Racsu Planet",
     vote_page_subtitle: "Apoie o servidor e ganhe 50 estrelas por voto em cada plataforma:",
+    vote_modrinth_title: "Você usa o Modrinth?",
+    vote_modrinth_desc: "Você também pode nos apoiar seguindo e salvando o servidor no Modrinth para acompanhar as novidades.",
+    vote_modrinth_btn: "Salvar Servidor no Modrinth",
 
     footer_brand_desc: "Servidor de Minecraft Skyblock compatível com Java e Bedrock Edition.",
     footer_links_title: "Links Rápidos",
