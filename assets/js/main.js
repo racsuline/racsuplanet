@@ -161,6 +161,8 @@ function initGuideTabs() {
       switchGuideTab('console');
     } else if (hash === '#bedrock' || tabParam === 'bedrock') {
       switchGuideTab('bedrock');
+    } else {
+      switchGuideTab('java');
     }
   }
 
