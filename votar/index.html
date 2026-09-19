@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votar por Racsu Planet | Consigue 50 Estrellas</title>
+  <meta name="description" content="Vota por Racsu Planet en las listas de servidores de Minecraft y gana 50 estrellas por voto para tu aventura en Skyblock.">
+  <link rel="canonical" href="https://racsu.com/votar/">
+  <link rel="icon" href="/resources/logo.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/resources/logo.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Votar por Racsu Planet | Recompensas de Servidor">
+  <meta property="og:description" content="Apoya a Racsu Planet y consigue 50 estrellas por cada voto diario en nuestras plataformas asociadas.">
+  <meta property="og:image" content="https://racsu.com/assets/og-image.png">
+  <meta property="og:url" content="https://racsu.com/votar/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="/" aria-label="Racsu Planet Inicio">
+        <img src="/resources/logo.png" alt="Racsu Planet Logo" width="30" height="30">
+        <span>Racsu Planet</span>
+      </a>
+      <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
+        ☰
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a class="nav-link" href="/" data-i18n="nav_home">Inicio</a>
+        <a class="nav-link" href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a class="nav-link" href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a class="nav-link" href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a class="nav-link active" href="/votar" data-i18n="nav_vote">Votar</a>
+        <a class="nav-link" href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a class="nav-link" href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
+      </div>
+      <div class="lang-selector-container">
+        <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)" aria-label="Selector de idioma">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-body" id="main-content">
+    <header class="section-header" style="margin-top: var(--sp-6);">
+      <span class="line"></span>
+      <h1 style="font-size: 2.2rem; color: var(--ore-gold); text-transform: uppercase; letter-spacing: 2px;" data-i18n="vote_page_title">Vota por Racsu Planet</h1>
+      <span class="line"></span>
+    </header>
+    <p class="section-subtitle" data-i18n="vote_page_subtitle">Apoya al servidor y consigue 50 estrellas por voto en cada plataforma:</p>
+
+    <!-- 10 Voting Platforms Container -->
+    <div class="vote-grid" id="vote-grid-container">
+      <!-- Loaded dynamically from /data/votos.json -->
+    </div>
+
+    <!-- Modrinth follow CTA -->
+    <div class="vote-modrinth-card" style="margin-top: var(--sp-7); padding: var(--sp-5); background: var(--ore-panel); border: 2px solid var(--ore-border); border-top-color: #555; text-align: center;">
+      <h2 style="font-size: 1.6rem; color: var(--ore-sky); margin-bottom: var(--sp-2);" data-i18n="vote_modrinth_title">¿Utilizas Modrinth?</h2>
+      <p style="font-size: 1.15rem; color: var(--ore-text-dim); margin-bottom: var(--sp-4); max-width: 600px; margin-left: auto; margin-right: auto;" data-i18n="vote_modrinth_desc">
+        También puedes apoyarnos siguiendo y guardando el servidor en Modrinth para enterarte de todas nuestras novedades.
+      </p>
+      <a href="https://modrinth.com/server/racsuplanet" target="_blank" rel="noopener noreferrer" class="mc-btn sky-btn">
+        <img src="/resources/modrinth.svg" alt="Modrinth" width="18" height="18" style="filter: brightness(0) invert(1);">
+        <span data-i18n="vote_modrinth_btn">Guardar Servidor en Modrinth</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">
+          <img src="/resources/logo.png" alt="Racsu Planet" width="36" height="36">
+          <span>Racsu Planet</span>
+        </a>
+        <p class="footer-desc" data-i18n="footer_desc">Servidor de Minecraft Skyblock en español para Java y Bedrock.</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_links_title">Links Rápidos</h3>
+        <a href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a href="/votar" data-i18n="nav_vote">Votar</a>
+        <a href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_community_title">Comunidad</h3>
+        <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer">Discord Oficial</a>
+        <a href="https://www.youtube.com/@RacsuPlanet" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="mailto:me@racsu.com" style="margin-top:6px; color:var(--ore-text);">me@racsu.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true">
+        <span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).
+      </p>
+      <p data-i18n="footer_copyright">© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

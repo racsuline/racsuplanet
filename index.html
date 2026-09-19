@@ -4,1037 +4,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racsu Planet</title>
+  <title>Racsu Planet | Servidor de Minecraft Skyblock Java & Bedrock</title>
   <meta name="description"
-    content="Racsu Planet - Servidor de Minecraft Skyblock. Compatible con Java y Bedrock Edition.">
-  <link rel="icon" href="resources/logo.png" type="image/png" sizes="32x32">
+    content="Racsu Planet - Servidor de Minecraft Skyblock en español. Compatible con Java y Bedrock Edition. Conéctate gratis en play.racsu.com">
+  <link rel="canonical" href="https://racsu.com/">
+  <link rel="icon" href="/resources/logo.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/resources/logo.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#141414">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://racsu.com/">
+  <meta property="og:title" content="Racsu Planet | Servidor de Minecraft Skyblock Java & Bedrock">
+  <meta property="og:description"
+    content="Servidor de Minecraft Skyblock en español compatible con Java y Bedrock Edition. Conéctate en play.racsu.com">
+  <meta property="og:image" content="https://racsu.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://racsu.com/">
+  <meta name="twitter:title" content="Racsu Planet | Servidor de Minecraft Skyblock Java & Bedrock">
+  <meta name="twitter:description"
+    content="Servidor de Minecraft Skyblock en español compatible con Java y Bedrock Edition. Conéctate en play.racsu.com">
+  <meta name="twitter:image" content="https://racsu.com/assets/og-image.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://racsu.com/#website",
+        "url": "https://racsu.com/",
+        "name": "Racsu Planet",
+        "description": "Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://racsu.com/#organization",
+        "name": "Racsu Planet",
+        "url": "https://racsu.com/",
+        "logo": "https://racsu.com/resources/logo.png",
+        "email": "me@racsu.com",
+        "sameAs": [
+          "https://discord.racsu.com",
+          "https://www.youtube.com/@RacsuPlanet"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-  <style>
-    /* ─── MINECRAFT OREUI DESIGN SYSTEM ─── */
-    :root {
-      --ore-bg: #1a1a1a;
-      --ore-panel: #2a2a2a;
-      --ore-panel-light: #3a3a3a;
-      --ore-panel-dark: #1e1e1e;
-      --ore-border: #4a4a4a;
-      --ore-border-dark: #111111;
-      --ore-green: #5a8f29;
-      --ore-green-hover: #6aaf32;
-      --ore-green-dark: #3d6b1a;
-      --ore-red: #c13b2a;
-      --ore-red-hover: #d4483a;
-      --ore-orange: #e8a630;
-      --ore-gold: #f5c842;
-      --ore-blue: #5865F2;
-      --ore-sky: #38bdf8;
-      --ore-sky-dark: #0ea5e9;
-      --ore-text: #e0e0e0;
-      --ore-text-dim: #8a8a8a;
-      --ore-text-bright: #ffffff;
-      --ore-shadow: rgba(0, 0, 0, 0.5);
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 60px;
-      overflow-x: hidden;
-      width: 100%;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: var(--ore-bg);
-      color: var(--ore-text);
-      font-family: 'VT323', monospace;
-      min-height: 100vh;
-      overflow-x: hidden;
-      width: 100%;
-      image-rendering: pixelated;
-    }
-
-    /* ─── PIXELATED GRID OVERLAY ─── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.008) 2px, rgba(255, 255, 255, 0.008) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.008) 2px, rgba(255, 255, 255, 0.008) 4px);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* ─── AMBIENT COLOR GLOWS ─── */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 45% 35% at 10% 20%, rgba(56, 130, 248, 0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 85% 45%, rgba(245, 200, 66, 0.05) 0%, transparent 70%),
-        radial-gradient(ellipse 35% 30% at 15% 70%, rgba(220, 60, 40, 0.045) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 90% 85%, rgba(56, 130, 248, 0.04) 0%, transparent 70%);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* NAV BAR */
-    .navbar {
-      background: var(--ore-panel-dark);
-      border-bottom: 3px solid var(--ore-border-dark);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .navbar-inner {
-      display: flex;
-      align-items: center;
-      height: 48px;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .navbar-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0;
-      text-decoration: none;
-    }
-
-    .navbar-logo img {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-      image-rendering: pixelated;
-    }
-
-    .navbar-logo span {
-      font-size: 1.05rem;
-      color: var(--ore-text-bright);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 1px 1px 0 #000;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-left: auto;
-    }
-
-    .nav-link {
-      display: flex;
-      align-items: center;
-      padding: 0 16px;
-      font-family: 'VT323', monospace;
-      font-size: 1.05rem;
-      color: var(--ore-text-dim);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      border-bottom: 3px solid transparent;
-      transition: color 0.1s, border-color 0.1s;
-      margin-bottom: -3px;
-    }
-
-    .nav-link:hover {
-      color: var(--ore-text-bright);
-    }
-
-    .nav-link.active {
-      color: var(--ore-orange);
-      border-bottom-color: var(--ore-orange);
-    }
-
-
-
-    /* HERO  */
-    .hero {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 72px 20px 52px;
-      overflow: hidden;
-      animation: fadeIn .5s ease both;
-      background: url('resources/banner.png') center center / cover no-repeat;
-    }
-
-    /* Dark overlay so text stays readable over the banner */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(26, 26, 26, 0.55) 0%, rgba(26, 26, 26, 0.75) 100%),
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(56, 189, 248, 0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(90, 143, 41, 0.1) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo-wrap {
-      display: inline-block;
-      width: 150px;
-      height: 150px;
-      margin-bottom: 18px;
-    }
-
-    .logo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.9));
-      animation: float 3.5s ease-in-out infinite;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0)
-      }
-
-      50% {
-        transform: translateY(-8px)
-      }
-    }
-
-    .hero h1 {
-      font-size: clamp(3.2rem, 11vw, 5rem);
-      text-transform: uppercase;
-      color: var(--ore-text-bright);
-      text-shadow: 3px 3px 0 #000, 1px 1px 0 #000;
-      letter-spacing: 4px;
-      line-height: 1;
-    }
-
-    .hero-mode {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 3px 12px;
-      background: rgba(56, 189, 248, 0.15);
-      border: 2px solid var(--ore-sky);
-      color: var(--ore-sky);
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
-    }
-
-    .hero .tagline {
-      font-size: 1.5rem;
-      color: var(--ore-text-dim);
-      margin-top: 10px;
-      letter-spacing: 1px;
-    }
-
-    .hero .tagline .hl {
-      color: var(--ore-green);
-      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-    }
-
-    .hero .tagline .hl-star {
-      color: var(--ore-gold);
-      font-size: 1.4rem;
-      margin-left: 2px;
-      vertical-align: text-top;
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-      line-height: 1;
-      transition: transform 0.15s, color 0.15s;
-    }
-
-    .hero .tagline .hl-star:hover {
-      color: #fff;
-      transform: scale(1.25);
-    }
-
-    .footer-disclaimer {
-      font-size: 1.05rem;
-      color: var(--ore-text);
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-      line-height: 1.4;
-      padding: 6px 12px;
-      display: inline-block;
-      border: 1px solid transparent;
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-
-    .footer-disclaimer:target {
-      background: rgba(245, 200, 66, 0.1);
-      border-color: rgba(245, 200, 66, 0.4);
-      color: var(--ore-text-bright);
-    }
-
-    .hl-star {
-      color: var(--ore-gold);
-      font-weight: bold;
-    }
-
-    .hl-gold {
-      color: var(--ore-gold);
-    }
-
-    /* ─── HERO CTA BUTTONS ─── */
-    .hero-btns {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    /* ─── MINECRAFT BUTTONS ─── */
-    .mc-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 28px;
-      min-width: 280px;
-      font-family: 'VT323', monospace;
-      font-size: 1.35rem;
-      color: var(--ore-text-bright);
-      text-decoration: none;
-      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
-      letter-spacing: 1px;
-      cursor: pointer;
-      border: 3px solid;
-      border-top-color: rgba(255, 255, 255, 0.2);
-      border-left-color: rgba(255, 255, 255, 0.15);
-      border-right-color: rgba(0, 0, 0, 0.3);
-      border-bottom-color: rgba(0, 0, 0, 0.4);
-      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35);
-      position: relative;
-      transition: filter 0.1s, transform 0.1s, box-shadow 0.1s;
-    }
-
-    .mc-btn:hover {
-      filter: brightness(1.2);
-      transform: translateY(-1px);
-      box-shadow: 0 5px 0 rgba(0, 0, 0, 0.35);
-    }
-
-    .mc-btn:hover::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border: 2px solid rgba(255, 255, 255, 0.55);
-      pointer-events: none;
-    }
-
-    .mc-btn:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-    }
-
-    .mc-btn svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    .mc-btn.green {
-      background: var(--ore-green);
-    }
-
-    .mc-btn.green:hover {
-      background: var(--ore-green-hover);
-    }
-
-
-    .mc-btn.sky-btn {
-      background: #0369a1;
-    }
-
-    .mc-btn.sky-btn:hover {
-      background: #0284c7;
-    }
-
-    .btn-secondary {
-      font-size: 1.1rem;
-      color: var(--ore-text-dim);
-      text-decoration: none;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: color 0.15s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-secondary:hover {
-      color: var(--ore-text);
-    }
-
-    /* ─── PAGE WRAPPER ─── */
-    .page-body {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 20px 72px;
-      overflow-x: hidden;
-    }
-
-    /* Scrolling gradient accents on the page content */
-    .page-body::before,
-    .page-body::after {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: -1;
-      filter: blur(80px);
-    }
-
-    .page-body::before {
-      top: 200px;
-      left: -250px;
-      background: radial-gradient(circle, rgba(56, 130, 248, 0.08) 0%, transparent 70%);
-    }
-
-    .page-body::after {
-      top: 900px;
-      right: -250px;
-      background: radial-gradient(circle, rgba(220, 60, 40, 0.06) 0%, transparent 70%);
-    }
-
-    /* ─── SECTION ─── */
-    .section {
-      margin-top: 48px;
-      animation: fadeIn .5s ease both;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .section-header .line {
-      flex: 1;
-      height: 2px;
-      background: var(--ore-border);
-    }
-
-    .section-header h2 {
-      font-size: 1.7rem;
-      text-transform: uppercase;
-      color: var(--ore-orange);
-      text-shadow: 2px 2px 0 #000;
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-
-    /* ─── ORE PANEL ─── */
-    .ore-panel {
-      background: var(--ore-panel);
-      border: 3px solid var(--ore-border);
-      border-top-color: #555;
-      border-left-color: #555;
-      border-right-color: #222;
-      border-bottom-color: #222;
-      position: relative;
-    }
-
-    .ore-panel::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      pointer-events: none;
-    }
-
-    /* ─── CONNECT CARD ─── */
-    .connect-card {
-      background: linear-gradient(135deg, var(--ore-green) 0%, var(--ore-green-dark) 100%);
-      border: 3px solid;
-      border-top-color: #7ac048;
-      border-left-color: #7ac048;
-      border-right-color: #2a5010;
-      border-bottom-color: #2a5010;
-      padding: 18px 22px;
-      width: min(100%, 280px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      cursor: copy;
-      position: relative;
-      transition: filter 0.15s;
-    }
-
-    .connect-card:hover {
-      filter: brightness(1.08);
-    }
-
-    .connect-card:hover::after {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      pointer-events: none;
-    }
-
-    .connect-card .cc-icon {
-      width: 52px;
-      height: 52px;
-      background: rgba(0, 0, 0, 0.25);
-      border: 2px solid rgba(0, 0, 0, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .connect-card .cc-icon svg {
-      width: 28px;
-      height: 28px;
-      color: #fff;
-    }
-
-    .connect-card .cc-info {
-      text-align: center;
-    }
-
-    .connect-card .cc-info strong {
-      display: block;
-      align-items: center;
-      font-size: 1.6rem;
-      color: #fff;
-      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
-      letter-spacing: 1px;
-    }
-
-    .connect-card .cc-info span {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .mc-tooltip {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--ore-text-dim);
-      margin-top: 10px;
-      letter-spacing: 0.5px;
-    }
-
-    /* ─── FEATURES GRID (2-col on desktop) ─── */
-    .main-features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    @media(max-width: 768px) {
-      .main-features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .main-feat-card {
-      background: var(--ore-panel);
-      border: 3px solid;
-      border-top-color: #555;
-      border-left-color: #555;
-      border-right-color: #222;
-      border-bottom-color: #222;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transition: transform 0.2s, filter 0.2s;
-      position: relative;
-    }
-
-    .main-feat-card:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
-    }
-
-    .main-feat-card:hover::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border: 2px solid rgba(255, 255, 255, 0.45);
-      pointer-events: none;
-    }
-
-    .main-feat-image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4/3;
-      flex-shrink: 0;
-      border-bottom: 3px solid var(--ore-border-dark);
-      background: #111;
-      overflow: hidden;
-    }
-
-    .main-feat-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.3s;
-    }
-
-    .main-feat-card:hover .main-feat-image img {
-      transform: scale(1.05);
-    }
-
-    .main-feat-text {
-      padding: 18px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .main-feat-text strong {
-      display: block;
-      font-size: 1.6rem;
-      color: var(--ore-text-bright);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-shadow: 2px 2px 0 #000;
-      line-height: 1.1;
-    }
-
-    .main-feat-subtitle {
-      display: block;
-      font-size: 1.05rem;
-      color: var(--ore-text-dim);
-      letter-spacing: 0.5px;
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-
-    .main-feat-desc {
-      display: block;
-      font-size: 1.15rem;
-      color: var(--ore-text);
-      line-height: 1.35;
-    }
-
-    @media(max-width: 600px) {
-      .main-feat-image {
-        aspect-ratio: 4/3;
-      }
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    @media(max-width:560px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .feat-card {
-      background: var(--ore-panel);
-      border: 3px solid;
-      border-top-color: #555;
-      border-left-color: #555;
-      border-right-color: #222;
-      border-bottom-color: #222;
-      padding: 20px 22px;
-      display: flex;
-      align-items: flex-start;
-      gap: 0;
-    }
-
-    .feat-icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.25);
-      border: 2px solid rgba(255, 255, 255, 0.06);
-      font-size: 1.3rem;
-    }
-
-    .feat-text strong {
-      display: block;
-      font-size: 1.2rem;
-      color: var(--ore-text-bright);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 0 #000;
-    }
-
-    .feat-text span {
-      display: block;
-      font-size: 1rem;
-      color: var(--ore-text-dim);
-      margin-top: 2px;
-      line-height: 1.3;
-    }
-
-    /* ─── MODPACK CARD ─── */
-    .modpack-card {
-      background: var(--ore-panel);
-      border: 3px solid;
-      border-top-color: #555;
-      border-left-color: #555;
-      border-right-color: #222;
-      border-bottom-color: #222;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media(max-width:600px) {
-      .modpack-card {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .modpack-image {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0c4a6e 0%, #1e1e1e 100%);
-      min-height: 240px;
-    }
-
-    .modpack-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      image-rendering: pixelated;
-      display: block;
-      padding: 24px;
-    }
-
-    .modpack-content {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 14px;
-    }
-
-    .modpack-content strong {
-      display: block;
-      font-size: 1.7rem;
-      color: var(--ore-sky);
-      text-shadow: 2px 2px 0 #000;
-      letter-spacing: 1px;
-    }
-
-    .modpack-content .modpack-subtitle {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.6);
-      display: block;
-      margin-top: -8px;
-    }
-
-    .modpack-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .modpack-tag {
-      display: inline-block;
-      padding: 2px 8px;
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      color: var(--ore-sky);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .modpack-content p {
-      font-size: 1.05rem;
-      color: var(--ore-text-dim);
-      line-height: 1.45;
-    }
-
-    .modpack-content .mc-btn {
-      min-width: unset;
-      width: 100%;
-    }
-
-    /* ─── DISCORD SECTION ─── */
-    .discord-layout {
-      display: flex;
-      justify-content: center;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-
-    .discord-embed-wrap {
-      width: 100%;
-      max-width: 480px;
-      background: var(--ore-panel);
-      border: 3px solid;
-      border-top-color: #555;
-      border-left-color: #555;
-      border-right-color: #222;
-      border-bottom-color: #222;
-      overflow: hidden;
-    }
-
-    .discord-embed-wrap iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      display: block;
-    }
-
-    /* ─── FOOTER ─── */
-    .site-footer {
-      position: relative;
-      z-index: 2;
-      background: var(--ore-panel-dark);
-      border-top: 3px solid var(--ore-border-dark);
-      margin-top: 72px;
-      padding: 40px 20px 0;
-    }
-
-    .footer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    @media(max-width:768px) {
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-    }
-
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-
-    .footer-logo img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-      image-rendering: pixelated;
-    }
-
-    .footer-logo span {
-      font-size: 1.15rem;
-      color: var(--ore-text-bright);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 1px 1px 0 #000;
-    }
-
-    .footer-brand p {
-      font-size: 1rem;
-      color: var(--ore-text-dim);
-      line-height: 1.5;
-    }
-
-    .footer-col h3 {
-      font-size: 1.15rem;
-      color: var(--ore-text-bright);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-shadow: 1px 1px 0 #000;
-      margin-bottom: 12px;
-    }
-
-    .footer-col a {
-      display: block;
-      font-size: 1rem;
-      color: var(--ore-text-dim);
-      text-decoration: none;
-      padding: 3px 0;
-      transition: color 0.15s;
-    }
-
-    .footer-col a:hover {
-      color: var(--ore-green);
-    }
-
-    .footer-bottom {
-      max-width: 900px;
-      margin: 0 auto;
-      margin-top: 32px;
-      padding: 16px 0;
-      border-top: 2px solid var(--ore-border);
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--ore-text-dim);
-    }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .delay-1 {
-      animation-delay: .1s;
-    }
-
-    .delay-2 {
-      animation-delay: .2s;
-    }
-
-    .delay-3 {
-      animation-delay: .3s;
-    }
-
-    .delay-4 {
-      animation-delay: .4s;
-    }
-
-    .delay-5 {
-      animation-delay: .5s;
-    }
-
-    /* ─── RESPONSIVE NAV ─── */
-    @media(max-width:620px) {
-      .nav-links .nav-link {
-        padding: 0 8px;
-        font-size: 0.9rem;
-      }
-
-      .hero {
-        padding: 52px 16px 36px;
-      }
-
-      .mc-btn {
-        min-width: 240px;
-        font-size: 1.2rem;
-      }
-
-      .modpack-stats {
-        gap: 14px;
-      }
-
-      .section-header h2 {
-        font-size: 1.35rem;
-        white-space: normal;
-        text-align: center;
-      }
-    }
-
-    @media(max-width:540px) {
-      .nav-links {
-        display: none;
-      }
-    }
-
-    /* ─── LANGUAGE SELECTOR ─── */
-    .lang-selector-container {
-      display: flex;
-      align-items: center;
-      margin-left: 16px;
-    }
-
-    .lang-select {
-      background: var(--ore-panel);
-      border: 2px solid var(--ore-border);
-      border-top-color: #555;
-      border-left-color: #555;
-      border-right-color: #222;
-      border-bottom-color: #222;
-      color: var(--ore-text);
-      font-family: 'VT323', monospace;
-      font-size: 1.05rem;
-      padding: 2px 8px;
-      cursor: pointer;
-      outline: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: border-color 0.1s, background-color 0.1s;
-    }
-
-    .lang-select:hover {
-      border-color: var(--ore-orange);
-      background: var(--ore-panel-light);
-      color: var(--ore-text-bright);
-    }
-
-    .lang-select:focus {
-      border-color: var(--ore-gold);
-    }
-
-    .lang-select option {
-      background: var(--ore-panel-dark);
-      color: var(--ore-text);
-    }
-
-    @media(max-width:540px) {
-      .lang-selector-container {
-        margin-left: auto;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ═══ NAVBAR ═══ -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Navegación principal">
     <div class="navbar-inner">
-      <a class="navbar-logo" href="#">
-        <img src="resources/logo.png" alt="Racsu Planet">
+      <a class="navbar-logo" href="/" aria-label="Racsu Planet Inicio">
+        <img src="/resources/logo.png" alt="Racsu Planet Logo" width="30" height="30">
         <span>Racsu Planet</span>
       </a>
-      <div class="nav-links">
-        <a class="nav-link active" href="#" data-i18n="nav_home">Inicio</a>
-        <a class="nav-link" href="#skyblock" data-i18n="nav_skyblock">Skyblock</a>
-        <a class="nav-link" href="#modpack" data-i18n="nav_modpack">Modpack</a>
-        <a class="nav-link" href="#discord" data-i18n="nav_discord">Discord</a>
-        <a class="nav-link" href="https://tienda.racsu.com" target="_blank" data-i18n="nav_store">Tienda</a>
+      <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
+        ☰
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a class="nav-link active" href="/" data-i18n="nav_home">Inicio</a>
+        <a class="nav-link" href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a class="nav-link" href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a class="nav-link" href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a class="nav-link" href="/votar" data-i18n="nav_vote">Votar</a>
+        <a class="nav-link" href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a class="nav-link" href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
       </div>
       <div class="lang-selector-container">
         <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)"
-          aria-label="Language selector">
+          aria-label="Selector de idioma">
           <option value="es">ES</option>
           <option value="en">EN</option>
           <option value="pt">PT</option>
@@ -1043,386 +101,376 @@
     </div>
   </nav>
 
-  <!-- ═══ HERO ═══ -->
-  <div class="hero">
-    <div class="logo-wrap">
-      <img src="resources/logo.png" alt="Logo Racsu Planet">
-    </div>
-    <h1>Racsu Planet</h1>
-    <p class="tagline" data-i18n="hero_tagline" data-i18n-html="true"><span class="hl">Servidor de Minecraft</span> |
-      Java &amp; Bedrock<a href="#disclaimer" class="hl-star" title="Ver aclaración">*</a></p>
+  <!-- ═══ 1. HERO (2-COLUMN BALANCED) ═══ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1>Racsu Planet</h1>
+        <p class="tagline" data-i18n="hero_tagline" data-i18n-html="true">
+          <span class="hl">Servidor de Minecraft</span> | Java &amp; Bedrock<a href="#disclaimer" class="hl-star" title="Ver aclaración">*</a>
+        </p>
 
-    <div class="hero-btns">
-      <div class="connect-card" onclick="copyIP()" id="connect-card">
-        <div class="cc-info">
-          <strong>play.racsu.com</strong>
-          <span id="ip-text" data-i18n="hero_ip_text">Click para copiar la IP</span>
+        <!-- Status Chips -->
+        <div class="hero-status-row" aria-live="polite">
+          <div class="chip" id="server-status-indicator">
+            <span class="status-dot online" id="status-dot"></span>
+            <span data-i18n="status_online">Online</span>
+          </div>
+          <div class="chip" id="server-status-players">
+            <strong>--</strong>/100 Jugadores
+          </div>
+          <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer" class="chip chip-discord" aria-label="Comunidad de Discord">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+            <span id="discord-online-count" data-i18n="status_discord_online">en Discord</span>
+          </a>
+        </div>
+
+        <!-- Single Primary Action: Copy IP Button -->
+        <div class="hero-cta-box">
+          <div class="connect-card" onclick="copyIP()" id="connect-card" role="button" tabindex="0"
+            aria-label="Copiar dirección IP del servidor play.racsu.com">
+            <div class="cc-info">
+              <strong>play.racsu.com</strong>
+              <span id="ip-text" data-i18n="hero_ip_text">Click para copiar la IP</span>
+            </div>
+          </div>
+          <span class="hero-version-text">Java 26.2+ · Bedrock Puerto 19132</span>
+        </div>
+      </div>
+
+      <!-- Mascot Logo Showcase -->
+      <div class="hero-mascot">
+        <div class="logo-wrap">
+          <img src="/resources/logo.png" alt="Racsu Planet Logo 3D" width="150" height="150">
         </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- ═══ PAGE BODY ═══ -->
-  <div class="page-body">
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="page-body" id="main-content">
 
-    <!-- ═══ SKYBLOCK FEATURES ═══ -->
-    <div class="section delay-1" id="skyblock" style="animation: fadeIn .5s .1s ease both;">
+    <!-- ═══ 2. CÓMO ENTRAR (PESTAÑAS JAVA / BEDROCK) ═══ -->
+    <section class="section" id="como-entrar">
       <div class="section-header">
         <span class="line"></span>
-        <h2 data-i18n="skyblock_title">Juega un Skyblock Asombroso</h2>
+        <h2 data-i18n="guide_title">Cómo Entrar en 3 Pasos</h2>
         <span class="line"></span>
       </div>
+      <p class="section-subtitle" data-i18n="guide_subtitle">Conéctate fácilmente desde cualquier edición oficial de Minecraft</p>
 
-      <!-- Main Game Modes (Islas & Duelos) -->
-      <div class="main-features-grid">
-        <div class="main-feat-card">
-          <div class="main-feat-image">
-            <img src="resources/islas.png" alt="Islas">
-          </div>
-          <div class="main-feat-text">
-            <strong data-i18n="feat_islands_title">Islas</strong>
-            <span class="main-feat-subtitle" data-i18n="feat_islands_subtitle">Tu aventura en el cielo</span>
-            <span class="main-feat-desc" data-i18n="feat_islands_desc">Empieza desde cero en tu isla flotante y
-              construye tu propio mundo.</span>
-          </div>
-        </div>
+      <div class="guide-tabs" role="tablist" aria-label="Plataformas de conexión">
+        <button class="tab-btn" id="tab-btn-java" onclick="switchGuideTab('java')" role="tab" aria-selected="false" aria-controls="guide-java-content" data-i18n="guide_tab_java">Java Edition</button>
+        <button class="tab-btn" id="tab-btn-bedrock" onclick="switchGuideTab('bedrock')" role="tab" aria-selected="false" aria-controls="guide-bedrock-content" data-i18n="guide_tab_bedrock">Bedrock (Móvil/Win10)</button>
+        <button class="tab-btn" id="tab-btn-console" onclick="switchGuideTab('console')" role="tab" aria-selected="false" aria-controls="guide-console-content" data-i18n="guide_tab_console">Consolas</button>
+      </div>
 
-        <div class="main-feat-card">
-          <div class="main-feat-image">
-            <img src="resources/duelos.png" alt="Duelos">
+      <!-- Java Steps -->
+      <div id="guide-java-content" role="tabpanel" aria-labelledby="tab-btn-java">
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-badge">1</span>
+            <h3 data-i18n="guide_step1_java_title">Abre Minecraft Java</h3>
+            <p data-i18n="guide_step1_java_desc">Inicia tu cliente oficial en versión 26.2 o superior.</p>
           </div>
-          <div class="main-feat-text">
-            <strong data-i18n="feat_duels_title">Duelos</strong>
-            <span class="main-feat-subtitle" data-i18n="feat_duels_subtitle">Compite en la arena</span>
-            <span class="main-feat-desc" data-i18n="feat_duels_desc">Compite en los duelos y en el koth para demostrar
-              que eres el mejor.</span>
+          <div class="step-card">
+            <span class="step-badge">2</span>
+            <h3 data-i18n="guide_step2_java_title">Añadir Servidor</h3>
+            <p data-i18n="guide_step2_java_desc">Multijugador > Añadir Servidor con la IP play.racsu.com</p>
+            <button class="copy-pill-btn" onclick="copyIP()" aria-label="Copiar IP play.racsu.com">
+              <span>play.racsu.com</span>
+              <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">3</span>
+            <h3 data-i18n="guide_step3_java_title">¡A Jugar!</h3>
+            <p data-i18n="guide_step3_java_desc">Guarda y conéctate. Tu isla flotante te espera.</p>
           </div>
         </div>
       </div>
 
-      <!-- Other Features -->
-      <div class="features-grid">
-        <div class="feat-card">
-          <div class="feat-text">
-            <strong data-i18n="feat_grid1_title">Economía y Farming</strong>
-            <span data-i18n="feat_grid1_desc">Cultiva recursos, vendelos en el mercado y domina la economía.</span>
+      <!-- Bedrock Steps -->
+      <div id="guide-bedrock-content" role="tabpanel" aria-labelledby="tab-btn-bedrock" style="display: none;" hidden>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-badge">1</span>
+            <h3 data-i18n="guide_step1_bedrock_title">Abre Minecraft Bedrock</h3>
+            <p data-i18n="guide_step1_bedrock_desc">Desde Windows 10/11, Android o iOS con cuenta oficial.</p>
           </div>
-        </div>
-        <div class="feat-card">
-          <div class="feat-text">
-            <strong data-i18n="feat_grid2_title">Clasificaciones</strong>
-            <span data-i18n="feat_grid2_desc">Sube en el ranking de islas y demuestra quién manda en el cielo.</span>
+          <div class="step-card">
+            <span class="step-badge">2</span>
+            <h3 data-i18n="guide_step2_bedrock_title">Añadir a Servidores</h3>
+            <p data-i18n="guide_step2_bedrock_desc">Pestaña Servidores > Añadir Servidor con IP y puerto.</p>
+            <button class="copy-pill-btn" onclick="copyIP()" style="margin-bottom: 6px;" aria-label="Copiar IP play.racsu.com">
+              <span>IP: play.racsu.com</span>
+              <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+            <button class="copy-pill-btn" onclick="copyBedrockPort()" aria-label="Copiar puerto 19132">
+              <span>Puerto: <strong id="port-text">19132</strong></span>
+              <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
           </div>
-        </div>
-        <div class="feat-card">
-          <div class="feat-text">
-            <strong data-i18n="feat_grid3_title">Java & Bedrock</strong>
-            <span data-i18n="feat_grid3_desc">Conectate desde cualquier edición en play.racsu.com</span>
-          </div>
-        </div>
-        <div class="feat-card">
-          <div class="feat-text">
-            <strong data-i18n="feat_grid4_title">Cosméticos y Rangos</strong>
-            <span data-i18n="feat_grid4_desc">Personaliza tu experiencia con rangos exclusivos en la tienda.</span>
+          <div class="step-card">
+            <span class="step-badge">3</span>
+            <h3 data-i18n="guide_step3_bedrock_title">Conéctate</h3>
+            <p data-i18n="guide_step3_bedrock_desc">Presiona Jugar y comienza tu aventura en el cielo.</p>
           </div>
         </div>
       </div>
-    </div>
-    <!-- ═══ MODPACK ═══ -->
-    <div class="section delay-3" id="modpack" style="animation: fadeIn .5s .3s ease both;">
+
+      <!-- Consoles Steps (Xbox, PlayStation, Nintendo Switch) -->
+      <div id="guide-console-content" role="tabpanel" aria-labelledby="tab-btn-console" style="display: none;" hidden>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-badge">1</span>
+            <h3 data-i18n="guide_step1_console_title">Instala BedrockTogether</h3>
+            <p data-i18n="guide_step1_console_desc">Descarga la app en tu móvil o tablet (Android o iOS) conectado a la misma red Wi-Fi que tu consola:</p>
+            <div style="display: flex; gap: var(--sp-2); margin-top: auto; padding-top: var(--sp-2); flex-wrap: wrap;">
+              <a href="https://play.google.com/store/apps/details?id=pl.extollite.bedrocktogether" target="_blank" rel="noopener noreferrer" class="mc-btn green" style="flex: 1; min-width: 110px; font-size: 1.05rem; text-align: center; padding: 6px 10px;">Google Play →</a>
+              <a href="https://apps.apple.com/app/bedrocktogether/id1534593376" target="_blank" rel="noopener noreferrer" class="mc-btn sky-btn" style="flex: 1; min-width: 110px; font-size: 1.05rem; text-align: center; padding: 6px 10px;">App Store →</a>
+            </div>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">2</span>
+            <h3 data-i18n="guide_step2_console_title">Configura en la App</h3>
+            <p data-i18n="guide_step2_console_desc">Añade los datos de Racsu Planet y presiona el botón Run para iniciar la conexión LAN:</p>
+            <button class="copy-pill-btn" onclick="copyIP()" style="margin-bottom: 6px;" aria-label="Copiar IP play.racsu.com">
+              <span>IP: play.racsu.com</span>
+              <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+            <button class="copy-pill-btn" onclick="copyBedrockPort()" aria-label="Copiar puerto 19132">
+              <span>Puerto: <strong>19132</strong></span>
+              <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">3</span>
+            <h3 data-i18n="guide_step3_console_title">Entra desde tu Consola</h3>
+            <p data-i18n="guide_step3_console_desc" data-i18n-html="true">Abre Minecraft en tu consola, entra a la pestaña <strong>Amigos</strong> y únete a Racsu Planet bajo <strong>Partidas LAN</strong>. ¡Mantén la app abierta!</p>
+          </div>
+        </div>
+
+        <p class="guide-disclaimer" data-i18n="console_thirdparty_notice">
+          Racsu Planet no está afiliado a esta app ni a sus desarrolladores. Es una herramienta de terceros; no ofrecemos soporte técnico para su funcionamiento, pero puedes preguntarnos en Discord.
+        </p>
+
+        <details class="guide-accordion">
+          <summary data-i18n="console_troubleshoot_title">Problemas comunes y soluciones</summary>
+          <ul>
+            <li data-i18n="console_troubleshoot_p1"><strong>Misma red Wi-Fi:</strong> La consola y el móvil deben estar en la misma red local (evita redes de invitados o aislamiento AP).</li>
+            <li data-i18n="console_troubleshoot_p2"><strong>Permiso en iOS (iPhone/iPad):</strong> Verifica en Ajustes > BedrockTogether que el permiso de Red local esté activado.</li>
+            <li data-i18n="console_troubleshoot_p3"><strong>Mantener app abierta:</strong> No cierres la app en tu teléfono mientras juegas; si se cierra, se perderá la conexión LAN.</li>
+            <li data-i18n="console_troubleshoot_p4"><strong>Suscripción online:</strong> Requiere suscripción activa según tu consola (Xbox Game Pass Core, PlayStation Plus o Nintendo Switch Online) y cuenta Microsoft.</li>
+            <li data-i18n="console_troubleshoot_p5"><strong>Si no aparece en la lista:</strong> Pulsa Stop y vuelve a pulsar Run en la app móvil, y espera unos segundos en la pestaña Amigos de la consola.</li>
+          </ul>
+        </details>
+
+        <details class="guide-accordion">
+          <summary data-i18n="console_dns_title">Otros métodos: Redirección DNS (BedrockConnect)</summary>
+          <div style="margin-top: var(--sp-2); line-height: 1.5;" data-i18n="console_dns_desc">
+            También puedes conectar cambiando la DNS primaria de tu consola por una IP pública de BedrockConnect (ej. 104.238.130.180). Al unirte a cualquier servidor destacado oficial se abrirá una lista para escribir play.racsu.com. Este método puede verse afectado si tu proveedor bloquea DNS externas, por lo que recomendamos BedrockTogether.
+          </div>
+        </details>
+      </div>
+
+      <!-- Discreet modpack tip -->
+      <p class="guide-subtip">
+        <span data-i18n="guide_modpack_tip">Paso opcional: Instala el modpack oficial Racsu Planet+ para optimizar tu rendimiento.</span>
+        <a href="/modpack" data-i18n="guide_modpack_btn">Ver Modpack →</a>
+      </p>
+    </section>
+
+    <!-- ═══ 3. TRÁILER OFICIAL ═══ -->
+    <section class="section" id="trailer">
       <div class="section-header">
         <span class="line"></span>
-        <h2>Racsu Planet+</h2>
+        <h2 data-i18n="trailer_title">Tráiler Oficial</h2>
         <span class="line"></span>
       </div>
+      <p class="section-subtitle" data-i18n="trailer_subtitle">Echa un vistazo a la experiencia que te espera en Racsu Planet</p>
+
+      <div class="trailer-wrap">
+        <div class="trailer-facade-wrap" id="trailer-facade" role="button" tabindex="0" aria-label="Reproducir tráiler oficial de Racsu Planet">
+          <img class="trailer-facade-thumb" src="https://i.ytimg.com/vi/ZsAJiZ42qGc/hqdefault.jpg" alt="Miniatura del tráiler de Racsu Planet" loading="lazy" width="800" height="450">
+          <div class="trailer-play-btn" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 4. SKYBLOCK (QUÉ VAS A ENCONTRAR) ═══ -->
+    <section class="section" id="skyblock">
+      <div class="section-header">
+        <span class="line"></span>
+        <h2 data-i18n="skyblock_title">¿Qué vas a encontrar?</h2>
+        <span class="line"></span>
+      </div>
+      <p class="section-subtitle" data-i18n="skyblock_subtitle">Todo lo que necesitas para tu aventura en el cielo</p>
+
+      <div class="skyblock-grid">
+        <div class="sky-card">
+          <div class="sky-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--ore-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3 data-i18n="feat_islands_title">Islas</h3>
+          <p data-i18n="feat_islands_desc">Comienza desde cero en tu isla flotante y construye tu propio mundo.</p>
+        </div>
+        <div class="sky-card">
+          <div class="sky-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--ore-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline><line x1="13" y1="19" x2="19" y2="13"></line><line x1="16" y1="16" x2="20" y2="20"></line><line x1="19" y1="21" x2="21" y2="19"></line><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline><line x1="5" y1="14" x2="9" y2="18"></line><line x1="7" y1="17" x2="4" y2="20"></line><line x1="3" y1="19" x2="5" y2="21"></line></svg>
+          </div>
+          <h3 data-i18n="feat_duels_title">Duelos y KOTH</h3>
+          <p data-i18n="feat_duels_desc">Compite en la arena de combate PvP y domina la colina en eventos KOTH.</p>
+        </div>
+        <div class="sky-card">
+          <div class="sky-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--ore-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"></path><path d="M10 20c0-4.4 3.6-8 8-8v-1a6 6 0 0 0-6-6c-4.4 0-8 3.6-8 8v7"></path><path d="M12 20V10"></path></svg>
+          </div>
+          <h3 data-i18n="feat_grid1_title">Economía y Farming</h3>
+          <p data-i18n="feat_grid1_desc">Cultiva recursos, véndelos en el mercado dinámico y domina la economía.</p>
+        </div>
+        <div class="sky-card">
+          <div class="sky-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--ore-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h10c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-2c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg>
+          </div>
+          <h3 data-i18n="feat_grid2_title">Clasificaciones</h3>
+          <p data-i18n="feat_grid2_desc">Sube en el ranking de nivel de islas y demuestra quién manda en el cielo.</p>
+        </div>
+        <div class="sky-card">
+          <div class="sky-card-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--ore-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="12" x2="10" y2="12"></line><line x1="8" y1="10" x2="8" y2="14"></line><line x1="15" y1="13" x2="15.01" y2="13"></line><line x1="18" y1="11" x2="18.01" y2="11"></line><rect x="2" y="6" width="20" height="12" rx="6"></rect></svg>
+          </div>
+          <h3 data-i18n="feat_grid3_title">Java & Bedrock</h3>
+          <p data-i18n="feat_grid3_desc">Conéctate con tu cuenta oficial desde Java o Bedrock en play.racsu.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 5. MODPACK RACSU PLANET+ ═══ -->
+    <section class="section" id="modpack">
+      <div class="section-header">
+        <span class="line"></span>
+        <h2 data-i18n="modpack_title">Racsu Planet+</h2>
+        <span class="line"></span>
+      </div>
+      <p class="section-subtitle" data-i18n="modpack_subtitle">Modpack oficial del servidor — Fabric · MC 26.2</p>
 
       <div class="modpack-card">
         <div class="modpack-image">
-          <img src="resources/logoMDR.png" alt="Racsu Planet+ icon">
+          <img src="/resources/logoMDR.png" alt="Racsu Planet+ Logo" width="140" height="140" loading="lazy">
         </div>
         <div class="modpack-content">
-          <strong>Racsu Planet+</strong>
-          <span class="modpack-subtitle" data-i18n="modpack_subtitle">Modpack oficial del servidor — Fabric · MC
-            26.2</span>
+          <h3>Racsu Planet+</h3>
           <div class="modpack-tags">
             <span class="modpack-tag" data-i18n="modpack_tag_opt">Optimización</span>
             <span class="modpack-tag" data-i18n="modpack_tag_ui">Nueva Interfaz</span>
             <span class="modpack-tag" data-i18n="modpack_tag_anim">Animaciones</span>
           </div>
           <p data-i18n="modpack_desc" data-i18n-html="true">
-            Un pack de mods personalizado con <strong style="color:var(--ore-text);">+90 mods</strong> cuidadosamente
-            seleccionados para mejorar tu experiencia en el servidor. Optimizacion y una refrescada estetica. :>
+            Pack personalizado con <strong style="color:var(--ore-text-bright);">+90 mods</strong> seleccionados para optimizar FPS, añadir shaders y renovar la estética visual.
           </p>
-          <a class="mc-btn sky-btn" href="https://modrinth.com/modpack/racsu-planet" target="_blank">
-            <img src="resources/modrinth.svg" alt="Modrinth" width="20" height="20"
-              style="filter:brightness(0) invert(1); flex-shrink:0;">
+          <a class="mc-btn sky-btn" href="https://modrinth.com/modpack/racsu-planet" target="_blank" rel="noopener noreferrer">
+            <img src="/resources/modrinth.svg" alt="Modrinth" width="18" height="18" style="filter:brightness(0) invert(1);">
             <span data-i18n="modpack_download_text">Descargar en Modrinth</span>
           </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ═══ DISCORD ═══ -->
-    <div class="section delay-4" id="discord" style="animation: fadeIn .5s .4s ease both;">
+    <!-- ═══ 6. COMUNIDAD Y VOTACIÓN ═══ -->
+    <section class="section" id="comunidad">
       <div class="section-header">
         <span class="line"></span>
-        <h2>Discord</h2>
+        <h2 data-i18n="community_title">Comunidad y Votación</h2>
         <span class="line"></span>
       </div>
+      <p class="section-subtitle" data-i18n="community_subtitle">Únete a nuestro Discord y vota para ganar recompensas</p>
 
-      <div class="discord-layout">
-        <!-- Widget embed -->
-        <div class="discord-embed-wrap">
-          <iframe src="https://discord.com/widget?id=1261810581304770610&theme=dark" allowtransparency="true"
-            frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-            title="Discord de Racsu Planet" data-i18n-title="discord_iframe_title"></iframe>
+      <div class="community-grid">
+        <div class="comm-card">
+          <h3 data-i18n="community_discord_title">Discord de Racsu Planet</h3>
+          <p data-i18n="community_discord_desc">Conoce a otros jugadores, comparte capturas de tu isla y participa en sorteos y torneos de la comunidad.</p>
+          <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer" class="mc-btn green" style="width:100%;">
+            <span data-i18n="community_discord_cta">Unirse al Discord Oficial →</span>
+          </a>
+        </div>
+
+        <div class="comm-card">
+          <h3 data-i18n="community_vote_title">Vota por Racsu Planet</h3>
+          <p data-i18n="community_vote_desc">Apoya al servidor votando en nuestras 10 plataformas asociadas y recibe 50 estrellas por voto en tu cuenta de juego.</p>
+          <a href="/votar" class="mc-btn green" style="width:100%; background:#b45309; border-color:#f59e0b; border-bottom-color:#78350f;">
+            <span data-i18n="community_vote_btn">Ver sitios de votación →</span>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
+    <!-- ═══ 7. REGLAS (RESUMEN BREVE) ═══ -->
+    <section class="section" id="reglas">
+      <div class="section-header">
+        <span class="line"></span>
+        <h2 data-i18n="rules_title">Reglas del Servidor</h2>
+        <span class="line"></span>
+      </div>
+      <p class="section-subtitle" data-i18n="rules_subtitle">Normas esenciales para una convivencia sana en la comunidad</p>
 
-  </div><!-- /page-body -->
+      <div class="card">
+        <ul class="rules-summary-list">
+          <li><strong>#1 Convivencia:</strong> Prohibido el odio, acoso o discriminación hacia cualquier jugador.</li>
+          <li><strong>#2 Juego Limpio:</strong> Prohibido el uso de hacks, autoclickers, x-ray o clientes con ventajas desleales.</li>
+          <li><strong>#3 Economía:</strong> Prohibida la venta de objetos del juego por dinero real ajeno a la tienda oficial.</li>
+          <li><strong>#4 Respeto en Chat:</strong> No hagas spam, flood, mayúsculas continuas ni compartas contenido inapropiado.</li>
+          <li><strong>#5 Sentido Común:</strong> El sentido común prima sobre cualquier vacío de las normas escritas.</li>
+        </ul>
+        <div style="text-align: center; margin-top: var(--sp-4);">
+          <a href="/reglas" class="mc-btn green" data-i18n="rules_view_all_btn">Ver todas las 21 reglas oficiales →</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- ═══ FOOTER ═══ -->
+  </main>
+
+  <!-- ═══ 8. FOOTER (UNIFIED 3-COLUMN + DISCLAIMER) ═══ -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a class="footer-logo" href="#">
-          <img src="resources/logo.png" alt="Racsu Planet">
+        <a class="footer-logo" href="/">
+          <img src="/resources/logo.png" alt="Racsu Planet Logo" width="28" height="28">
           <span>Racsu Planet</span>
         </a>
-        <p data-i18n="footer_brand_desc">Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition.</p>
+        <p data-i18n="footer_brand_desc">Servidor de Minecraft Skyblock en español compatible con Java y Bedrock Edition.</p>
+        <p style="color:var(--ore-text-dim); font-size:1.05rem; margin-top:4px;">
+          IP: <strong style="color:var(--ore-sky);">play.racsu.com</strong> (Java 26.2+ · Bedrock 19132)
+        </p>
       </div>
       <div class="footer-col">
         <h3 data-i18n="footer_links_title">Links Rápidos</h3>
-        <a href="#skyblock" data-i18n="nav_skyblock">Skyblock</a>
-        <a href="#modpack" data-i18n="nav_modpack">Modpack</a>
-        <a href="https://tienda.racsu.com" target="_blank" data-i18n="nav_store">Tienda</a>
+        <a href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a href="/votar" data-i18n="nav_vote">Votar</a>
+        <a href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
       </div>
       <div class="footer-col">
         <h3 data-i18n="footer_community_title">Comunidad</h3>
-        <a href="https://discord.racsu.com" target="_blank">Discord</a>
-        <a href="https://www.youtube.com/@RacsuPlanet" target="_blank">YouTube</a>
+        <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer">Discord Oficial</a>
+        <a href="https://www.youtube.com/@RacsuPlanet" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="mailto:me@racsu.com" style="margin-top:6px; color:var(--ore-text);">me@racsu.com</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true"><span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).</p>
+      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true">
+        <span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).
+      </p>
       <p data-i18n="footer_copyright">© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com</p>
     </div>
   </footer>
 
-  <script>
-    const translations = {
-      es: {
-        meta_desc: "Racsu Planet - Servidor de Minecraft Skyblock. Compatible con Java y Bedrock Edition.",
-        nav_home: "Inicio",
-        nav_skyblock: "Skyblock",
-        nav_modpack: "Modpack",
-        nav_discord: "Discord",
-        nav_store: "Tienda",
-        hero_tagline: '<span class="hl">Servidor de Minecraft</span> | Java & Bedrock<a href="#disclaimer" class="hl-star" title="Ver aclaración">*</a>',
-        hero_ip_text: "Click para copiar la IP",
-        skyblock_title: "Juega un Skyblock Asombroso",
-        feat_islands_title: "Islas",
-        feat_islands_subtitle: "Tu aventura en el cielo",
-        feat_islands_desc: "Empieza desde cero en tu isla flotante y construye tu propio mundo.",
-        feat_duels_title: "Duelos",
-        feat_duels_subtitle: "Compite en la arena",
-        feat_duels_desc: "Compite en los duelos y en el koth para demostrar que eres el mejor.",
-        feat_grid1_title: "Economía y Farming",
-        feat_grid1_desc: "Cultiva recursos, vendelos en el mercado y domina la economía.",
-        feat_grid2_title: "Clasificaciones",
-        feat_grid2_desc: "Sube en el ranking de islas y demuestra quién manda en el cielo.",
-        feat_grid3_title: "Java & Bedrock",
-        feat_grid3_desc: "Conectate desde cualquier edición en play.racsu.com",
-        feat_grid4_title: "Cosméticos y Rangos",
-        feat_grid4_desc: "Personaliza tu experiencia con rangos exclusivos en la tienda.",
-        modpack_subtitle: "Modpack oficial del servidor — Fabric · MC 26.2",
-        modpack_tag_opt: "Optimización",
-        modpack_tag_ui: "Nueva Interfaz",
-        modpack_tag_anim: "Animaciones",
-        modpack_desc: 'Un pack de mods personalizado con <strong style="color:var(--ore-text);">+90 mods</strong> cuidadosamente seleccionados para mejorar tu experiencia en el servidor. Optimizacion y una refrescada estetica. :>',
-        modpack_download_text: "Descargar en Modrinth",
-        discord_iframe_title: "Discord de Racsu Planet",
-        footer_brand_desc: "Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition.",
-        footer_links_title: "Links Rápidos",
-        footer_community_title: "Comunidad",
-        footer_disclaimer: '<span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).',
-        footer_copyright: "© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com"
-      },
-      en: {
-        meta_desc: "Racsu Planet - Minecraft Skyblock Server. Compatible with Java & Bedrock Edition.",
-        nav_home: "Home",
-        nav_skyblock: "Skyblock",
-        nav_modpack: "Modpack",
-        nav_discord: "Discord",
-        nav_store: "Store",
-        hero_tagline: '<span class="hl">Minecraft Server</span> | Java & Bedrock<a href="#disclaimer" class="hl-star" title="View clarification">*</a>',
-        hero_ip_text: "Click to copy the IP",
-        skyblock_title: "Play an Awesome Skyblock",
-        feat_islands_title: "Islands",
-        feat_islands_subtitle: "Your adventure in the sky",
-        feat_islands_desc: "Start from scratch on your floating island and build your own world.",
-        feat_duels_title: "Duels",
-        feat_duels_subtitle: "Compete in the arena",
-        feat_duels_desc: "Compete in duels and koth to prove you are the best.",
-        feat_grid1_title: "Economy & Farming",
-        feat_grid1_desc: "Grow resources, sell them in the market, and dominate the economy.",
-        feat_grid2_title: "Leaderboards",
-        feat_grid2_desc: "Rise in the island rankings and show who rules the sky.",
-        feat_grid3_title: "Java & Bedrock",
-        feat_grid3_desc: "Connect from any edition at play.racsu.com",
-        feat_grid4_title: "Cosmetics & Ranks",
-        feat_grid4_desc: "Customize your experience with exclusive ranks in the store.",
-        modpack_subtitle: "Official server modpack — Fabric · MC 26.2",
-        modpack_tag_opt: "Optimization",
-        modpack_tag_ui: "New Interface",
-        modpack_tag_anim: "Animations",
-        modpack_desc: 'A custom modpack with <strong style="color:var(--ore-text);">+90 mods</strong> carefully selected to improve your experience on the server. Optimization and a fresh aesthetic look. :>',
-        modpack_download_text: "Download on Modrinth",
-        discord_iframe_title: "Racsu Planet Discord",
-        footer_brand_desc: "Minecraft Skyblock server compatible with Java and Bedrock Edition.",
-        footer_links_title: "Quick Links",
-        footer_community_title: "Community",
-        footer_disclaimer: '<span class="hl-star">*</span> <span class="hl-gold">Premium</span> server: requires an official Minecraft account to play (cracked or pirated versions are not supported).',
-        footer_copyright: "© 2026 Racsu Planet. Not affiliated with Mojang AB or Microsoft. Contact: me@racsu.com"
-      },
-      pt: {
-        meta_desc: "Racsu Planet - Servidor de Minecraft Skyblock. Compatível com Java e Bedrock Edition.",
-        nav_home: "Início",
-        nav_skyblock: "Skyblock",
-        nav_modpack: "Modpack",
-        nav_discord: "Discord",
-        nav_store: "Loja",
-        hero_tagline: '<span class="hl">Servidor de Minecraft</span> | Java & Bedrock<a href="#disclaimer" class="hl-star" title="Ver esclarecimento">*</a>',
-        hero_ip_text: "Clique para copiar o IP",
-        skyblock_title: "Jogue um Skyblock Incrível",
-        feat_islands_title: "Ilhas",
-        feat_islands_subtitle: "Sua aventura no céu",
-        feat_islands_desc: "Comece do zero em sua ilha flutuante e construa seu próprio mundo.",
-        feat_duels_title: "Duelos",
-        feat_duels_subtitle: "Compita na arena",
-        feat_duels_desc: "Compita em duelos e koth para provar que você é o melhor.",
-        feat_grid1_title: "Economia e Farming",
-        feat_grid1_desc: "Cultive recursos, venda-os no mercado e domine a economia.",
-        feat_grid2_title: "Classificações",
-        feat_grid2_desc: "Suba no ranking de ilhas e mostre quem manda no céu.",
-        feat_grid3_title: "Java & Bedrock",
-        feat_grid3_desc: "Conecte-se de cualquier edição em play.racsu.com",
-        feat_grid4_title: "Cosméticos e Cargos",
-        feat_grid4_desc: "Personalize sua experiência com cargos exclusivos na loja.",
-        modpack_subtitle: "Modpack oficial del servidor — Fabric · MC 26.2",
-        modpack_tag_opt: "Otimização",
-        modpack_tag_ui: "Nova Interface",
-        modpack_tag_anim: "Animações",
-        modpack_desc: 'Um pack de mods personalizado com <strong style="color:var(--ore-text);">+90 mods</strong> cuidadosamente selecionados para melhorar sua experiência no servidor. Otimização e um visual estético renovado. :>',
-        modpack_download_text: "Baixar no Modrinth",
-        discord_iframe_title: "Discord do Racsu Planet",
-        footer_brand_desc: "Servidor de Minecraft Skyblock compatível com Java e Bedrock Edition.",
-        footer_links_title: "Links Rápidos",
-        footer_community_title: "Comunidade",
-        footer_disclaimer: '<span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requer uma conta oficial de Minecraft para jogar (não compatível com versões piratas ou crackeadas).',
-        footer_copyright: "© 2026 Racsu Planet. Não afiliado à Mojang AB ou Microsoft. Contato: me@racsu.com"
-      }
-    };
-
-    const ipTexts = {
-      es: { copied: "¡IP Copiada! ✔" },
-      en: { copied: "IP Copied! ✔" },
-      pt: { copied: "IP Copiado! ✔" }
-    };
-
-    function detectLanguage() {
-      const saved = localStorage.getItem('preferred-lang');
-      if (saved && ['es', 'en', 'pt'].includes(saved)) {
-        return saved;
-      }
-
-      const browserLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
-      if (browserLang.startsWith('pt')) return 'pt';
-      if (browserLang.startsWith('en')) return 'en';
-      if (browserLang.startsWith('es')) return 'es';
-      return 'es';
-    }
-
-    function updateLanguage(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem('preferred-lang', lang);
-
-      const select = document.getElementById('lang-select');
-      if (select) select.value = lang;
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          if (el.hasAttribute('data-i18n-html')) {
-            el.innerHTML = translations[lang][key];
-          } else {
-            el.textContent = translations[lang][key];
-          }
-        }
-      });
-
-      document.querySelectorAll('[data-i18n-title]').forEach(el => {
-        const key = el.getAttribute('data-i18n-title');
-        if (translations[lang] && translations[lang][key]) {
-          el.setAttribute('title', translations[lang][key]);
-        }
-      });
-
-      const descMeta = document.querySelector('meta[name="description"]');
-      if (descMeta && translations[lang]['meta_desc']) {
-        descMeta.setAttribute('content', translations[lang]['meta_desc']);
-      }
-    }
-
-    function changeLanguage(lang) {
-      updateLanguage(lang);
-    }
-
-    function copyIP() {
-      const ip = "play.racsu.com";
-      const currentLang = detectLanguage();
-      navigator.clipboard.writeText(ip).then(() => {
-        ['ip-text', 'ip-text-2'].forEach(id => {
-          const el = document.getElementById(id);
-          if (!el) return;
-          const orig = el.innerText;
-          el.innerText = ipTexts[currentLang]?.copied || "¡IP Copiada! ✔";
-          el.style.color = "#ffffff";
-          setTimeout(() => { el.innerText = orig; el.style.color = ""; }, 2000);
-        });
-      });
-    }
-
-    // Highlight active nav link on scroll
-    const sections = document.querySelectorAll('#skyblock, #modpack, #discord');
-    const navLinks = document.querySelectorAll('.nav-link');
-    function updateNav() {
-      const scrollY = window.scrollY;
-      if (scrollY < 200) {
-        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'));
-        return;
-      }
-      let current = '';
-      const navbarHeight = document.querySelector('.navbar').offsetHeight;
-      sections.forEach(s => {
-        const rect = s.getBoundingClientRect();
-        if (rect.top <= navbarHeight + 60) current = s.id;
-      });
-      navLinks.forEach(l => {
-        const href = l.getAttribute('href');
-        l.classList.toggle('active', current ? href === '#' + current : href === '#');
-      });
-    }
-    window.addEventListener('scroll', updateNav, { passive: true });
-
-    // Initial Setup
-    const initialLang = detectLanguage();
-    updateLanguage(initialLang);
-    updateNav();
-  </script>
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

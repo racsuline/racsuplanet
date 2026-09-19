@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "name": "FindMCServer",
+    "url": "https://findmcserver.com/server/racsuplanet",
+    "reward": "50 Estrellas",
+    "host": "findmcserver.com"
+  },
+  {
+    "id": 2,
+    "name": "Xyrios",
+    "url": "https://xyrios.com/minecraft/servers/58",
+    "reward": "50 Estrellas",
+    "host": "xyrios.com"
+  },
+  {
+    "id": 3,
+    "name": "MinecraftServers.me",
+    "url": "https://minecraftservers.me/server/racsu.lifesteal.33712/vote",
+    "reward": "50 Estrellas",
+    "host": "minecraftservers.me"
+  },
+  {
+    "id": 4,
+    "name": "Minecraft Server List",
+    "url": "https://minecraft-server-list.com/server/519286/vote/",
+    "reward": "50 Estrellas",
+    "host": "minecraft-server-list.com"
+  },
+  {
+    "id": 5,
+    "name": "Play Minecraft Servers",
+    "url": "https://play-minecraft-servers.com/minecraft-servers/racsu-planet/?tab=vote",
+    "reward": "50 Estrellas",
+    "host": "play-minecraft-servers.com"
+  },
+  {
+    "id": 6,
+    "name": "MCServidores",
+    "url": "https://mcservidores.com/servidor/857",
+    "reward": "50 Estrellas",
+    "host": "mcservidores.com"
+  },
+  {
+    "id": 7,
+    "name": "Minecraft Servers Org",
+    "url": "https://minecraftservers.org/vote/686153",
+    "reward": "50 Estrellas",
+    "host": "minecraftservers.org"
+  },
+  {
+    "id": 8,
+    "name": "Minecraft Best Servers",
+    "url": "https://minecraftbestservers.com/server-racsuplanet.3750/vote",
+    "reward": "50 Estrellas",
+    "host": "minecraftbestservers.com"
+  },
+  {
+    "id": 9,
+    "name": "Minecraft-MP",
+    "url": "https://minecraft-mp.com/server/356667/vote/",
+    "reward": "50 Estrellas",
+    "host": "minecraft-mp.com"
+  },
+  {
+    "id": 10,
+    "name": "Servidores De Minecraft",
+    "url": "https://servidoresdeminecraft.es/server/vote/DAnRTYRa/play.racsu.com",
+    "reward": "50 Estrellas",
+    "host": "servidoresdeminecraft.es"
+  }
+]
+
