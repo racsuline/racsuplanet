@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyblock en Racsu Planet | Islas, Duelos y Economía</title>
+  <meta name="description" content="Descubre la modalidad Skyblock de Racsu Planet: crea tu isla, domina la economía, compite en KOTH y escala el ranking.">
+  <link rel="canonical" href="https://racsu.com/skyblock/">
+  <link rel="icon" href="/resources/logo.png" type="image/png" sizes="32x32">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Skyblock en Racsu Planet | Java & Bedrock">
+  <meta property="og:description" content="Tu aventura en el cielo: islas flotantes, economía dinámica, duelos PvP y clasificaciones competitivas.">
+  <meta property="og:image" content="https://racsu.com/assets/og-image.png">
+  <meta property="og:url" content="https://racsu.com/skyblock/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="/">
+        <img src="/resources/logo.png" alt="Racsu Planet">
+        <span>Racsu Planet</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/" data-i18n="nav_home">Inicio</a>
+        <a class="nav-link" href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a class="nav-link active" href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a class="nav-link" href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a class="nav-link" href="/votar" data-i18n="nav_vote">Votar</a>
+        <a class="nav-link" href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a class="nav-link" href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
+      </div>
+      <div class="lang-selector-container">
+        <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)" aria-label="Language selector">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-body">
+    <header class="section-header" style="margin-top: 48px;">
+      <span class="line"></span>
+      <h1 style="font-size: 2.2rem; color: var(--ore-orange); text-transform: uppercase; letter-spacing: 2px;">Modalidad Skyblock</h1>
+      <span class="line"></span>
+    </header>
+
+    <!-- Main Game Modes -->
+    <div class="main-features-grid">
+      <div class="main-feat-card">
+        <div class="main-feat-image">
+          <img src="/resources/islas.png" alt="Islas Skyblock" loading="lazy" width="600" height="450">
+        </div>
+        <div class="main-feat-text">
+          <strong data-i18n="feat_islands_title">Islas</strong>
+          <span class="main-feat-subtitle" data-i18n="feat_islands_subtitle">Tu aventura en el cielo</span>
+          <span class="main-feat-desc" data-i18n="feat_islands_desc">Empieza desde cero en tu isla flotante y construye tu propio mundo.</span>
+        </div>
+      </div>
+
+      <div class="main-feat-card">
+        <div class="main-feat-image">
+          <img src="/resources/duelos.png" alt="Duelos y KOTH" loading="lazy" width="600" height="450">
+        </div>
+        <div class="main-feat-text">
+          <strong data-i18n="feat_duels_title">Duelos y KOTH</strong>
+          <span class="main-feat-subtitle" data-i18n="feat_duels_subtitle">Compite en la arena</span>
+          <span class="main-feat-desc" data-i18n="feat_duels_desc">Compite en los duelos y en el koth para demostrar que eres el mejor.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub features -->
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-text">
+          <strong data-i18n="feat_grid1_title">Economía y Farming</strong>
+          <span data-i18n="feat_grid1_desc">Cultiva recursos, vendelos en el mercado y domina la economía.</span>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-text">
+          <strong data-i18n="feat_grid2_title">Clasificaciones</strong>
+          <span data-i18n="feat_grid2_desc">Sube en el ranking de islas y demuestra quién manda en el cielo.</span>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-text">
+          <strong data-i18n="feat_grid3_title">Java & Bedrock</strong>
+          <span data-i18n="feat_grid3_desc">Conéctate desde cualquier edición oficial en play.racsu.com</span>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-text">
+          <strong data-i18n="feat_grid4_title">Cosméticos y Rangos</strong>
+          <span data-i18n="feat_grid4_desc">Personaliza tu experiencia con rangos exclusivos en la tienda.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eventos y Temporadas (hidden if empty) -->
+    <section class="section" id="eventos-section" style="display: none;">
+      <div class="section-header">
+        <span class="line"></span>
+        <h2>Eventos y Temporadas</h2>
+        <span class="line"></span>
+      </div>
+      <div class="steps-grid" id="eventos-list"></div>
+    </section>
+
+    <!-- Top 10 Ranking de Islas -->
+    <section class="section">
+      <div class="section-header">
+        <span class="line"></span>
+        <h2 data-i18n="ranking_title">Ranking de Islas</h2>
+        <span class="line"></span>
+      </div>
+
+      <div class="ranking-wrap">
+        <div class="ranking-demo-notice">
+          ⚙️ <strong>DATOS DEMO:</strong> Este ranking se gestiona en <code>/data/ranking.json</code>. En GitHub Pages se actualiza editando dicho archivo o con un GitHub Action conectado al plugin de Skyblock.
+        </div>
+        <table class="ranking-table" aria-label="Tabla de clasificación de islas de Skyblock">
+          <thead>
+            <tr>
+              <th data-i18n="ranking_col_pos">#</th>
+              <th data-i18n="ranking_col_name">Isla</th>
+              <th data-i18n="ranking_col_leader">Líder</th>
+              <th data-i18n="ranking_col_level">Nivel</th>
+              <th data-i18n="ranking_col_members">Miembros</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-tbody">
+            <!-- Loaded dynamically from /data/ranking.json -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">
+          <img src="/resources/logo.png" alt="Racsu Planet">
+          <span>Racsu Planet</span>
+        </a>
+        <p data-i18n="footer_brand_desc">Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition.</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_links_title">Links Rápidos</h3>
+        <a href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a href="/votar" data-i18n="nav_vote">Votar</a>
+        <a href="/reglas" data-i18n="nav_rules">Reglas</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_community_title">Comunidad</h3>
+        <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://www.youtube.com/@RacsuPlanet" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://modrinth.com/server/racsuplanet" target="_blank" rel="noopener noreferrer">Modrinth</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_server_title">Servidor</h3>
+        <p style="color:var(--ore-sky); font-size:1.1rem;">play.racsu.com</p>
+        <p style="color:var(--ore-text-dim); font-size:1rem; margin-top:4px;">Java & Bedrock (19132)</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true"><span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).</p>
+      <p data-i18n="footer_copyright">© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
