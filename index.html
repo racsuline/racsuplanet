@@ -248,6 +248,50 @@
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
     }
 
+    .hero .tagline .hl-star {
+      color: var(--ore-gold);
+      font-size: 1.4rem;
+      margin-left: 2px;
+      vertical-align: text-top;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      line-height: 1;
+      transition: transform 0.15s, color 0.15s;
+    }
+
+    .hero .tagline .hl-star:hover {
+      color: #fff;
+      transform: scale(1.25);
+    }
+
+    .footer-disclaimer {
+      font-size: 1.05rem;
+      color: var(--ore-text);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+      padding: 6px 12px;
+      display: inline-block;
+      border: 1px solid transparent;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .footer-disclaimer:target {
+      background: rgba(245, 200, 66, 0.1);
+      border-color: rgba(245, 200, 66, 0.4);
+      color: var(--ore-text-bright);
+    }
+
+    .hl-star {
+      color: var(--ore-gold);
+      font-weight: bold;
+    }
+
+    .hl-gold {
+      color: var(--ore-gold);
+    }
+
     /* ─── HERO CTA BUTTONS ─── */
     .hero-btns {
       display: flex;
@@ -1006,7 +1050,7 @@
     </div>
     <h1>Racsu Planet</h1>
     <p class="tagline" data-i18n="hero_tagline" data-i18n-html="true"><span class="hl">Servidor de Minecraft</span> |
-      Java &amp; Bedrock</p>
+      Java &amp; Bedrock<a href="#disclaimer" class="hl-star" title="Ver aclaración">*</a></p>
 
     <div class="hero-btns">
       <div class="connect-card" onclick="copyIP()" id="connect-card">
@@ -1163,6 +1207,7 @@
       </div>
     </div>
     <div class="footer-bottom">
+      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true"><span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).</p>
       <p data-i18n="footer_copyright">© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com</p>
     </div>
   </footer>
@@ -1176,7 +1221,7 @@
         nav_modpack: "Modpack",
         nav_discord: "Discord",
         nav_store: "Tienda",
-        hero_tagline: '<span class="hl">Servidor de Minecraft</span> | Java & Bedrock',
+        hero_tagline: '<span class="hl">Servidor de Minecraft</span> | Java & Bedrock<a href="#disclaimer" class="hl-star" title="Ver aclaración">*</a>',
         hero_ip_text: "Click para copiar la IP",
         skyblock_title: "Juega un Skyblock Asombroso",
         feat_islands_title: "Islas",
@@ -1203,6 +1248,7 @@
         footer_brand_desc: "Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition.",
         footer_links_title: "Links Rápidos",
         footer_community_title: "Comunidad",
+        footer_disclaimer: '<span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).',
         footer_copyright: "© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com"
       },
       en: {
@@ -1212,7 +1258,7 @@
         nav_modpack: "Modpack",
         nav_discord: "Discord",
         nav_store: "Store",
-        hero_tagline: '<span class="hl">Minecraft Server</span> | Java & Bedrock',
+        hero_tagline: '<span class="hl">Minecraft Server</span> | Java & Bedrock<a href="#disclaimer" class="hl-star" title="View clarification">*</a>',
         hero_ip_text: "Click to copy the IP",
         skyblock_title: "Play an Awesome Skyblock",
         feat_islands_title: "Islands",
@@ -1239,6 +1285,7 @@
         footer_brand_desc: "Minecraft Skyblock server compatible with Java and Bedrock Edition.",
         footer_links_title: "Quick Links",
         footer_community_title: "Community",
+        footer_disclaimer: '<span class="hl-star">*</span> <span class="hl-gold">Premium</span> server: requires an official Minecraft account to play (cracked or pirated versions are not supported).',
         footer_copyright: "© 2026 Racsu Planet. Not affiliated with Mojang AB or Microsoft. Contact: me@racsu.com"
       },
       pt: {
@@ -1248,7 +1295,7 @@
         nav_modpack: "Modpack",
         nav_discord: "Discord",
         nav_store: "Loja",
-        hero_tagline: '<span class="hl">Servidor de Minecraft</span> | Java & Bedrock',
+        hero_tagline: '<span class="hl">Servidor de Minecraft</span> | Java & Bedrock<a href="#disclaimer" class="hl-star" title="Ver esclarecimento">*</a>',
         hero_ip_text: "Clique para copiar o IP",
         skyblock_title: "Jogue um Skyblock Incrível",
         feat_islands_title: "Ilhas",
@@ -1262,7 +1309,7 @@
         feat_grid2_title: "Classificações",
         feat_grid2_desc: "Suba no ranking de ilhas e mostre quem manda no céu.",
         feat_grid3_title: "Java & Bedrock",
-        feat_grid3_desc: "Conecte-se de qualquer edição em play.racsu.com",
+        feat_grid3_desc: "Conecte-se de cualquier edição em play.racsu.com",
         feat_grid4_title: "Cosméticos e Cargos",
         feat_grid4_desc: "Personalize sua experiência com cargos exclusivos na loja.",
         modpack_subtitle: "Modpack oficial del servidor — Fabric · MC 26.2",
@@ -1275,6 +1322,7 @@
         footer_brand_desc: "Servidor de Minecraft Skyblock compatível com Java e Bedrock Edition.",
         footer_links_title: "Links Rápidos",
         footer_community_title: "Comunidade",
+        footer_disclaimer: '<span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requer uma conta oficial de Minecraft para jogar (não compatível com versões piratas ou crackeadas).',
         footer_copyright: "© 2026 Racsu Planet. Não afiliado à Mojang AB ou Microsoft. Contato: me@racsu.com"
       }
     };
