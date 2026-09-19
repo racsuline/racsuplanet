@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reglas Oficiales | Racsu Planet & Discord</title>
+  <meta name="description" content="Normativa oficial obligatoria para jugadores del servidor de Minecraft y miembros de la comunidad de Discord de Racsu Planet.">
+  <link rel="canonical" href="https://racsu.com/reglas/">
+  <link rel="icon" href="/resources/logo.png" type="image/png" sizes="32x32">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Reglas Oficiales | Racsu Planet & Discord">
+  <meta property="og:description" content="Conoce las 21 reglas oficiales que garantizan una comunidad justa, segura y divertida para todos.">
+  <meta property="og:image" content="https://racsu.com/assets/og-image.png">
+  <meta property="og:url" content="https://racsu.com/reglas/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="/">
+        <img src="/resources/logo.png" alt="Racsu Planet">
+        <span>Racsu Planet</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/" data-i18n="nav_home">Inicio</a>
+        <a class="nav-link" href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a class="nav-link" href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a class="nav-link" href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a class="nav-link" href="/votar" data-i18n="nav_vote">Votar</a>
+        <a class="nav-link active" href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a class="nav-link" href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
+      </div>
+      <div class="lang-selector-container">
+        <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)" aria-label="Language selector">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-body">
+    <header class="section-header" style="margin-top: 48px;">
+      <span class="line"></span>
+      <h1 style="font-size: 2.2rem; color: var(--ore-orange); text-transform: uppercase; letter-spacing: 2px;">Reglas del Servidor y Discord</h1>
+      <span class="line"></span>
+    </header>
+
+    <!-- Search Input -->
+    <div class="rules-search-wrap">
+      <input type="text" id="reglas-search" class="rules-search-input" placeholder="🔍 Escribe para buscar una regla..." data-i18n-placeholder="rules_search_placeholder" aria-label="Buscar regla">
+    </div>
+
+    <!-- Categories container -->
+    <div id="reglas-container">
+      <!-- Populated dynamically by main.js from /data/reglas.json -->
+    </div>
+
+    <!-- Final Mandatory Disclaimer Notice -->
+    <div class="rules-disclaimer-card">
+      <strong style="display:block; font-size:1.3rem; margin-bottom:6px; letter-spacing:1px;">⚠️ DERECHO DE ADMISIÓN:</strong>
+      <p>Nos reservamos el derecho de admisión al servidor de Minecraft o Discord en cualquier momento. La compra de objetos en la tienda no te exime de cumplir con estas reglas.</p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">
+          <img src="/resources/logo.png" alt="Racsu Planet">
+          <span>Racsu Planet</span>
+        </a>
+        <p data-i18n="footer_brand_desc">Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition.</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_links_title">Links Rápidos</h3>
+        <a href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a href="/votar" data-i18n="nav_vote">Votar</a>
+        <a href="/reglas" data-i18n="nav_rules">Reglas</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_community_title">Comunidad</h3>
+        <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://www.youtube.com/@RacsuPlanet" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://modrinth.com/server/racsuplanet" target="_blank" rel="noopener noreferrer">Modrinth</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_server_title">Servidor</h3>
+        <p style="color:var(--ore-sky); font-size:1.1rem;">play.racsu.com</p>
+        <p style="color:var(--ore-text-dim); font-size:1rem; margin-top:4px;">Java & Bedrock (19132)</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true"><span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).</p>
+      <p data-i18n="footer_copyright">© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

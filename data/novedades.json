@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "fecha": "2026-09-15",
+    "titulo": "Actualización del Modpack Oficial Racsu Planet+",
+    "resumen": "Se ha publicado la versión más reciente del modpack oficial en Modrinth con más de 90 mods optimizados, mejoras visuales y rendimiento potenciado.",
+    "categoria": "Modpack",
+    "enlace": "https://modrinth.com/modpack/racsu-planet"
+  },
+  {
+    "id": 2,
+    "fecha": "2026-09-01",
+    "titulo": "Compatibilidad total Java & Bedrock",
+    "resumen": "Ya puedes conectarte a play.racsu.com desde cualquier edición. En Bedrock utiliza el puerto 19132 y en Java la versión 26.1.2 o superior.",
+    "categoria": "Servidor",
+    "enlace": "/como-entrar"
+  },
+  {
+    "id": 3,
+    "fecha": "2026-08-15",
+    "titulo": "Lanzamiento de Islas y Duelos Skyblock",
+    "resumen": "Inicia tu aventura en el cielo: crea tu propia isla, compite en la arena de duelos y domina el mercado económico de Racsu Planet.",
+    "categoria": "Skyblock",
+    "enlace": "/skyblock"
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "nota_final": "Nos reservamos el derecho de admisión al servidor de Minecraft o Discord en cualquier momento. La compra de objetos en la tienda no te exime de cumplir con estas reglas.",
+  "categorias": [
+    {
+      "id": "convivencia",
+      "nombre": "Convivencia y Comunidad",
+      "icono": "🤝",
+      "reglas": [
+        {
+          "numero": 1,
+          "texto": "El discurso de odio o la discriminación por etnia, género, orientación sexual, religión, discapacidad o cualquier otra característica está prohibido."
+        },
+        {
+          "numero": 2,
+          "texto": "Las discusiones políticas o religiosas están prohibidas."
+        },
+        {
+          "numero": 3,
+          "texto": "El bullying, especialmente hacia jugadores nuevos o vulnerables, no está permitido."
+        },
+        {
+          "numero": 7,
+          "texto": "No acoses a otros jugadores si no desean interactuar contigo."
+        },
+        {
+          "numero": 21,
+          "texto": "Usa el sentido común en todo momento."
+        }
+      ]
+    },
+    {
+      "id": "chat",
+      "nombre": "Chat y Comunicación",
+      "icono": "💬",
+      "reglas": [
+        {
+          "numero": 4,
+          "texto": "Usa un lenguaje apropiado; el lenguaje soez, incluyendo términos vulgares en algunos países, está prohibido."
+        },
+        {
+          "numero": 5,
+          "texto": "No hagas bromas sugestivas ni compartas contenido inapropiado (NSFW, ilegal o sospechoso)."
+        },
+        {
+          "numero": 8,
+          "texto": "No hagas spam en el chat ni interrumpas conversaciones."
+        },
+        {
+          "numero": 9,
+          "texto": "Los mensajes privados deben cumplir con las reglas y están sujetos a moderación."
+        },
+        {
+          "numero": 10,
+          "texto": "No promociones servicios externos, canales, medios o servidores."
+        },
+        {
+          "numero": 11,
+          "texto": "No hagas ping al staff innecesariamente."
+        }
+      ]
+    },
+    {
+      "id": "juego",
+      "nombre": "Juego y Construcción",
+      "icono": "⚔️",
+      "reglas": [
+        {
+          "numero": 13,
+          "texto": "El PvP está activado; las pérdidas por derrota son responsabilidad del jugador."
+        },
+        {
+          "numero": 14,
+          "texto": "No construyas lag machines que afecten al servidor o a otros jugadores."
+        },
+        {
+          "numero": 15,
+          "texto": "No uses bugs o exploits; infórmalos o te enfrentarás a un baneo inmediato."
+        },
+        {
+          "numero": 16,
+          "texto": "El uso de VPNs está prohibido."
+        },
+        {
+          "numero": 17,
+          "texto": "No construyas ni crees pixel art con símbolos de odio o temáticas +18."
+        },
+        {
+          "numero": 18,
+          "texto": "No renombres objetos con nombres inapropiados."
+        }
+      ]
+    },
+    {
+      "id": "seguridad",
+      "nombre": "Seguridad y Menores",
+      "icono": "🛡️",
+      "reglas": [
+        {
+          "numero": 6,
+          "texto": "Incitar al suicidio o a las autolesiones, ya sea en broma o no, está prohibido."
+        },
+        {
+          "numero": 12,
+          "texto": "Suplantar a miembros del staff o asumir autoridad sin autorización está prohibido."
+        },
+        {
+          "numero": 19,
+          "texto": "Las interacciones con menores están supervisadas; contactarlos fuera del juego está prohibido. Los casos graves serán reportados a las autoridades."
+        },
+        {
+          "numero": 20,
+          "texto": "Reporta cualquier comportamiento que viole las reglas inmediatamente."
+        }
+      ]
+    }
+  ]
+}
