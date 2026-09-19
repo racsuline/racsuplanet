@@ -153,14 +153,24 @@ function initGuideTabs() {
   });
 
   // Check URL hash or query param to pre-select tab (e.g. #consolas, ?tab=console)
-  const hash = window.location.hash.toLowerCase();
-  const params = new URLSearchParams(window.location.search);
-  const tabParam = params.get('tab');
-  if (hash === '#consolas' || hash === '#consoles' || tabParam === 'console') {
-    switchGuideTab('console');
-  } else if (hash === '#bedrock' || tabParam === 'bedrock') {
-    switchGuideTab('bedrock');
+  function applyTabFromUrl() {
+    const hash = window.location.hash.toLowerCase();
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get('tab');
+    if (hash === '#consolas' || hash === '#consoles' || tabParam === 'console') {
+      switchGuideTab('console');
+    } else if (hash === '#bedrock' || tabParam === 'bedrock') {
+      switchGuideTab('bedrock');
+    }
   }
+
+  applyTabFromUrl();
+  window.addEventListener('hashchange', applyTabFromUrl);
+}
+
+// Immediate execution if script is loaded at bottom of page
+if (document.querySelector('.guide-tabs')) {
+  initGuideTabs();
 }
 
 // 5. YOUTUBE TRAILER FACADE
