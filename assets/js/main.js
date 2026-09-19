@@ -139,6 +139,16 @@ function initGuideTabs() {
       tabs[index].click();
     }
   });
+
+  // Check URL hash or query param to pre-select tab (e.g. #consolas, ?tab=console)
+  const hash = window.location.hash.toLowerCase();
+  const params = new URLSearchParams(window.location.search);
+  const tabParam = params.get('tab');
+  if (hash === '#consolas' || hash === '#consoles' || tabParam === 'console') {
+    switchGuideTab('console');
+  } else if (hash === '#bedrock' || tabParam === 'bedrock') {
+    switchGuideTab('bedrock');
+  }
 }
 
 // 5. YOUTUBE TRAILER FACADE
