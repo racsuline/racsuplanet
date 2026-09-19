@@ -7,6 +7,8 @@
   <meta name="description" content="Descarga Racsu Planet+, el modpack oficial de Minecraft con más de 90 mods de optimización, shaders, interfaz mejorada y rendimiento para Fabric MC 26.2.">
   <link rel="canonical" href="https://racsu.com/modpack/">
   <link rel="icon" href="/resources/logo.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/resources/logo.png">
+  <link rel="manifest" href="/manifest.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css">
 
@@ -19,15 +21,19 @@
   <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" aria-label="Navegación principal">
     <div class="navbar-inner">
-      <a class="navbar-logo" href="/">
-        <img src="/resources/logo.png" alt="Racsu Planet">
+      <a class="navbar-logo" href="/" aria-label="Racsu Planet Inicio">
+        <img src="/resources/logo.png" alt="Racsu Planet Logo" width="30" height="30">
         <span>Racsu Planet</span>
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
+        ☰
+      </button>
+      <div class="nav-links" id="nav-links">
         <a class="nav-link" href="/" data-i18n="nav_home">Inicio</a>
         <a class="nav-link" href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
         <a class="nav-link" href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
@@ -37,7 +43,7 @@
         <a class="nav-link" href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
       </div>
       <div class="lang-selector-container">
-        <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)" aria-label="Language selector">
+        <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)" aria-label="Selector de idioma">
           <option value="es">ES</option>
           <option value="en">EN</option>
           <option value="pt">PT</option>
@@ -46,38 +52,37 @@
     </div>
   </nav>
 
-  <main class="page-body">
-    <header class="section-header" style="margin-top: 48px;">
+  <main class="page-body" id="main-content">
+    <header class="section-header" style="margin-top: var(--sp-6);">
       <span class="line"></span>
       <h1 style="font-size: 2.2rem; color: var(--ore-sky); text-transform: uppercase; letter-spacing: 2px;">Racsu Planet+</h1>
       <span class="line"></span>
     </header>
+    <p class="section-subtitle" data-i18n="modpack_subtitle">Modpack oficial del servidor — Fabric · MC 26.2</p>
 
     <div class="modpack-card">
       <div class="modpack-image">
-        <img src="/resources/logoMDR.png" alt="Racsu Planet+ icon" width="400" height="400">
+        <img src="/resources/logoMDR.png" alt="Racsu Planet+ Logo" width="140" height="140" loading="lazy">
       </div>
       <div class="modpack-content">
-        <strong data-i18n="modpack_title">Racsu Planet+</strong>
-        <span class="modpack-subtitle" data-i18n="modpack_subtitle">Modpack oficial del servidor — Fabric · MC 26.2</span>
+        <h3>Racsu Planet+</h3>
         <div class="modpack-tags">
           <span class="modpack-tag" data-i18n="modpack_tag_opt">Optimización</span>
           <span class="modpack-tag" data-i18n="modpack_tag_ui">Nueva Interfaz</span>
           <span class="modpack-tag" data-i18n="modpack_tag_anim">Animaciones</span>
         </div>
         <p data-i18n="modpack_desc" data-i18n-html="true">
-          Un pack de mods personalizado con <strong style="color:var(--ore-text);">+90 mods</strong> cuidadosamente
-          seleccionados para mejorar tu experiencia en el servidor. Optimización y una refrescada estética. :>
+          Pack personalizado con <strong style="color:var(--ore-text-bright);">+90 mods</strong> seleccionados para optimizar FPS, añadir shaders y renovar la estética visual.
         </p>
         <a class="mc-btn sky-btn" href="https://modrinth.com/modpack/racsu-planet" target="_blank" rel="noopener noreferrer">
-          <img src="/resources/modrinth.svg" alt="Modrinth" width="20" height="20" style="filter:brightness(0) invert(1); flex-shrink:0;">
+          <img src="/resources/modrinth.svg" alt="Modrinth" width="18" height="18" style="filter:brightness(0) invert(1);">
           <span data-i18n="modpack_download_text">Descargar en Modrinth</span>
         </a>
       </div>
     </div>
 
-    <!-- Installation Steps -->
-    <section class="section">
+    <!-- 3 Installation Steps -->
+    <section class="section" style="margin-top: var(--sp-7);">
       <div class="section-header">
         <span class="line"></span>
         <h2>Instalación Rápida</h2>
@@ -86,32 +91,35 @@
       <div class="steps-grid">
         <div class="step-card">
           <span class="step-badge">1</span>
-          <h3>Instala Modrinth App</h3>
-          <p>Descarga e instala el launcher oficial de <a href="https://modrinth.com/app" target="_blank" rel="noopener noreferrer" style="color:var(--ore-sky);">Modrinth App</a> o Prism Launcher.</p>
+          <h3>Descarga Modrinth App</h3>
+          <p>Instala el launcher oficial desde <a href="https://modrinth.com/app" target="_blank" rel="noopener noreferrer" style="color:var(--ore-sky);">modrinth.com/app</a> o utiliza Prism Launcher.</p>
         </div>
         <div class="step-card">
           <span class="step-badge">2</span>
-          <h3>Busca Racsu Planet+</h3>
-          <p>Escribe <code>Racsu Planet</code> en el buscador de modpacks o haz clic en el botón de descarga.</p>
+          <h3>Busca el Modpack</h3>
+          <p>Escribe <code>Racsu Planet</code> en el buscador del launcher y presiona instalar.</p>
         </div>
         <div class="step-card">
           <span class="step-badge">3</span>
-          <h3>Juega con 1 Clic</h3>
-          <p>La IP <code>play.racsu.com</code> vendrá preconfigurada en la lista de servidores para entrar directamente.</p>
+          <h3>¡Conéctate!</h3>
+          <p>Inicia el juego. La IP <code>play.racsu.com</code> vendrá lista en tu lista de servidores.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- ═══ FOOTER ═══ -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="footer-logo" href="/">
-          <img src="/resources/logo.png" alt="Racsu Planet">
+          <img src="/resources/logo.png" alt="Racsu Planet Logo" width="28" height="28">
           <span>Racsu Planet</span>
         </a>
-        <p data-i18n="footer_brand_desc">Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition.</p>
+        <p data-i18n="footer_brand_desc">Servidor de Minecraft Skyblock en español compatible con Java y Bedrock Edition.</p>
+        <p style="color:var(--ore-text-dim); font-size:1.05rem; margin-top:4px;">
+          IP: <strong style="color:var(--ore-sky);">play.racsu.com</strong> (Java 26.1.2+ · Bedrock 19132)
+        </p>
       </div>
       <div class="footer-col">
         <h3 data-i18n="footer_links_title">Links Rápidos</h3>
@@ -120,21 +128,20 @@
         <a href="/modpack" data-i18n="nav_modpack">Modpack</a>
         <a href="/votar" data-i18n="nav_vote">Votar</a>
         <a href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
       </div>
       <div class="footer-col">
         <h3 data-i18n="footer_community_title">Comunidad</h3>
-        <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer">Discord Oficial</a>
         <a href="https://www.youtube.com/@RacsuPlanet" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="https://modrinth.com/server/racsuplanet" target="_blank" rel="noopener noreferrer">Modrinth</a>
-      </div>
-      <div class="footer-col">
-        <h3 data-i18n="footer_server_title">Servidor</h3>
-        <p style="color:var(--ore-sky); font-size:1.1rem;">play.racsu.com</p>
-        <p style="color:var(--ore-text-dim); font-size:1rem; margin-top:4px;">Java & Bedrock (19132)</p>
+        <a href="https://modrinth.com/server/racsuplanet" target="_blank" rel="noopener noreferrer">Servidor en Modrinth</a>
+        <a href="mailto:me@racsu.com" style="margin-top:6px; color:var(--ore-text);">me@racsu.com</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true"><span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).</p>
+      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true">
+        <span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).
+      </p>
       <p data-i18n="footer_copyright">© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com</p>
     </div>
   </footer>
@@ -143,4 +150,3 @@
   <script src="/assets/js/main.js"></script>
 </body>
 </html>
-
