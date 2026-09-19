@@ -628,6 +628,7 @@ body::after {
 .guide-tabs {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: var(--sp-2);
   margin-bottom: var(--sp-4);
 }
@@ -746,6 +747,75 @@ body::after {
 }
 .guide-subtip a:hover {
   text-decoration: underline;
+}
+
+.guide-accordion {
+  margin-top: var(--sp-4);
+  background: var(--ore-panel);
+  border: 2px solid var(--ore-border);
+  border-top-color: #555;
+  border-left-color: #555;
+  border-right-color: #1a1a1a;
+  border-bottom-color: #1a1a1a;
+  padding: var(--sp-3) var(--sp-4);
+  font-size: 1.12rem;
+  color: var(--ore-text-dim);
+  text-align: left;
+}
+
+.guide-accordion summary {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  color: var(--ore-orange);
+  cursor: pointer;
+  letter-spacing: 1px;
+  user-select: none;
+  outline: none;
+}
+
+.guide-accordion summary:hover {
+  color: #fff;
+}
+
+.guide-accordion[open] summary {
+  margin-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--ore-border);
+  padding-bottom: var(--sp-2);
+}
+
+.guide-accordion ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.guide-accordion li {
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.guide-accordion li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--ore-orange);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.guide-disclaimer {
+  margin-top: var(--sp-4);
+  font-size: 1.05rem;
+  color: var(--ore-text-dim);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px dashed var(--ore-border);
+  padding: var(--sp-3);
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* ─── 2. YOUTUBE TRAILER (FOCUSED & CENTERED) ─── */

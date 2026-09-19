@@ -161,59 +161,119 @@
       </div>
       <p class="section-subtitle" data-i18n="guide_subtitle">Conéctate fácilmente desde cualquier edición oficial de Minecraft</p>
 
-      <div class="guide-tabs">
-        <button class="tab-btn active" id="tab-btn-java" onclick="switchGuideTab('java')" data-i18n="guide_tab_java">Java Edition</button>
-        <button class="tab-btn" id="tab-btn-bedrock" onclick="switchGuideTab('bedrock')" data-i18n="guide_tab_bedrock">Bedrock (Móvil/Win10)</button>
+      <div class="guide-tabs" role="tablist" aria-label="Plataformas de conexión">
+        <button class="tab-btn active" id="tab-btn-java" onclick="switchGuideTab('java')" role="tab" aria-selected="true" aria-controls="guide-java-content" data-i18n="guide_tab_java">Java Edition</button>
+        <button class="tab-btn" id="tab-btn-bedrock" onclick="switchGuideTab('bedrock')" role="tab" aria-selected="false" aria-controls="guide-bedrock-content" data-i18n="guide_tab_bedrock">Bedrock (Móvil/Win10)</button>
+        <button class="tab-btn" id="tab-btn-console" onclick="switchGuideTab('console')" role="tab" aria-selected="false" aria-controls="guide-console-content" data-i18n="guide_tab_console">Consolas</button>
       </div>
 
       <!-- Java Steps -->
-      <div class="steps-grid" id="guide-java-content">
-        <div class="step-card">
-          <span class="step-badge">1</span>
-          <h3 data-i18n="guide_step1_java_title">Abre Minecraft Java</h3>
-          <p data-i18n="guide_step1_java_desc">Inicia tu cliente oficial en versión 26.1.2 o superior.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-badge">2</span>
-          <h3 data-i18n="guide_step2_java_title">Añadir Servidor</h3>
-          <p data-i18n="guide_step2_java_desc">Multijugador > Añadir Servidor con la IP play.racsu.com</p>
-          <button class="copy-pill-btn" onclick="copyIP()" aria-label="Copiar IP play.racsu.com">
-            <span>play.racsu.com</span>
-            <span>📋</span>
-          </button>
-        </div>
-        <div class="step-card">
-          <span class="step-badge">3</span>
-          <h3 data-i18n="guide_step3_java_title">¡A Jugar!</h3>
-          <p data-i18n="guide_step3_java_desc">Guarda y conéctate. Tu isla flotante te espera.</p>
+      <div id="guide-java-content" role="tabpanel" aria-labelledby="tab-btn-java">
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-badge">1</span>
+            <h3 data-i18n="guide_step1_java_title">Abre Minecraft Java</h3>
+            <p data-i18n="guide_step1_java_desc">Inicia tu cliente oficial en versión 26.1.2 o superior.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">2</span>
+            <h3 data-i18n="guide_step2_java_title">Añadir Servidor</h3>
+            <p data-i18n="guide_step2_java_desc">Multijugador > Añadir Servidor con la IP play.racsu.com</p>
+            <button class="copy-pill-btn" onclick="copyIP()" aria-label="Copiar IP play.racsu.com">
+              <span>play.racsu.com</span>
+              <span>📋</span>
+            </button>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">3</span>
+            <h3 data-i18n="guide_step3_java_title">¡A Jugar!</h3>
+            <p data-i18n="guide_step3_java_desc">Guarda y conéctate. Tu isla flotante te espera.</p>
+          </div>
         </div>
       </div>
 
       <!-- Bedrock Steps -->
-      <div class="steps-grid" id="guide-bedrock-content" style="display: none;">
-        <div class="step-card">
-          <span class="step-badge">1</span>
-          <h3 data-i18n="guide_step1_bedrock_title">Abre Minecraft Bedrock</h3>
-          <p data-i18n="guide_step1_bedrock_desc">Desde Windows 10/11, Android o iOS con cuenta oficial.</p>
+      <div id="guide-bedrock-content" role="tabpanel" aria-labelledby="tab-btn-bedrock" style="display: none;" hidden>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-badge">1</span>
+            <h3 data-i18n="guide_step1_bedrock_title">Abre Minecraft Bedrock</h3>
+            <p data-i18n="guide_step1_bedrock_desc">Desde Windows 10/11, Android o iOS con cuenta oficial.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">2</span>
+            <h3 data-i18n="guide_step2_bedrock_title">Añadir a Servidores</h3>
+            <p data-i18n="guide_step2_bedrock_desc">Pestaña Servidores > Añadir Servidor con IP y puerto.</p>
+            <button class="copy-pill-btn" onclick="copyIP()" style="margin-bottom: 6px;" aria-label="Copiar IP play.racsu.com">
+              <span>IP: play.racsu.com</span>
+              <span>📋</span>
+            </button>
+            <button class="copy-pill-btn" onclick="copyBedrockPort()" aria-label="Copiar puerto 19132">
+              <span>Puerto: <strong id="port-text">19132</strong></span>
+              <span>📋</span>
+            </button>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">3</span>
+            <h3 data-i18n="guide_step3_bedrock_title">Conéctate</h3>
+            <p data-i18n="guide_step3_bedrock_desc">Presiona Jugar y comienza tu aventura en el cielo.</p>
+          </div>
         </div>
-        <div class="step-card">
-          <span class="step-badge">2</span>
-          <h3 data-i18n="guide_step2_bedrock_title">Añadir a Servidores</h3>
-          <p data-i18n="guide_step2_bedrock_desc">Pestaña Servidores > Añadir Servidor con IP y puerto.</p>
-          <button class="copy-pill-btn" onclick="copyIP()" style="margin-bottom: 6px;">
-            <span>IP: play.racsu.com</span>
-            <span>📋</span>
-          </button>
-          <button class="copy-pill-btn" onclick="copyBedrockPort()">
-            <span>Puerto: <strong id="port-text">19132</strong></span>
-            <span>📋</span>
-          </button>
+      </div>
+
+      <!-- Consoles Steps (Xbox, PlayStation, Nintendo Switch) -->
+      <div id="guide-console-content" role="tabpanel" aria-labelledby="tab-btn-console" style="display: none;" hidden>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-badge">1</span>
+            <h3 data-i18n="guide_step1_console_title">Instala BedrockTogether</h3>
+            <p data-i18n="guide_step1_console_desc">Descarga la app en tu móvil o tablet (Android o iOS) conectado a la misma red Wi-Fi que tu consola:</p>
+            <div style="display: flex; gap: var(--sp-2); margin-top: auto; padding-top: var(--sp-2); flex-wrap: wrap;">
+              <a href="https://play.google.com/store/apps/details?id=pl.extollite.bedrocktogether" target="_blank" rel="noopener noreferrer" class="mc-btn green" style="flex: 1; min-width: 110px; font-size: 1.05rem; text-align: center; padding: 6px 10px;">Google Play ➔</a>
+              <a href="https://apps.apple.com/app/bedrocktogether/id1534593376" target="_blank" rel="noopener noreferrer" class="mc-btn sky-btn" style="flex: 1; min-width: 110px; font-size: 1.05rem; text-align: center; padding: 6px 10px;">App Store ➔</a>
+            </div>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">2</span>
+            <h3 data-i18n="guide_step2_console_title">Configura en la App</h3>
+            <p data-i18n="guide_step2_console_desc">Añade los datos de Racsu Planet y presiona el botón Run para iniciar la conexión LAN:</p>
+            <button class="copy-pill-btn" onclick="copyIP()" style="margin-bottom: 6px;" aria-label="Copiar IP play.racsu.com">
+              <span>IP: play.racsu.com</span>
+              <span>📋</span>
+            </button>
+            <button class="copy-pill-btn" onclick="copyBedrockPort()" aria-label="Copiar puerto 19132">
+              <span>Puerto: <strong>19132</strong></span>
+              <span>📋</span>
+            </button>
+          </div>
+          <div class="step-card">
+            <span class="step-badge">3</span>
+            <h3 data-i18n="guide_step3_console_title">Entra desde tu Consola</h3>
+            <p data-i18n="guide_step3_console_desc" data-i18n-html="true">Abre Minecraft en tu consola, entra a la pestaña <strong>Amigos</strong> y únete a Racsu Planet bajo <strong>Partidas LAN</strong>. ¡Mantén la app abierta!</p>
+          </div>
         </div>
-        <div class="step-card">
-          <span class="step-badge">3</span>
-          <h3 data-i18n="guide_step3_bedrock_title">Conéctate</h3>
-          <p data-i18n="guide_step3_bedrock_desc">Presiona Jugar y comienza tu aventura en el cielo.</p>
-        </div>
+
+        <p class="guide-disclaimer" data-i18n="console_thirdparty_notice">
+          ⚠️ Racsu Planet no está afiliado a esta app ni a sus desarrolladores. Es una herramienta de terceros; no ofrecemos soporte técnico para su funcionamiento, pero puedes preguntarnos en Discord.
+        </p>
+
+        <details class="guide-accordion">
+          <summary data-i18n="console_troubleshoot_title">🔧 Problemas comunes y soluciones</summary>
+          <ul>
+            <li data-i18n="console_troubleshoot_p1"><strong>Misma red Wi-Fi:</strong> La consola y el móvil deben estar en la misma red local (evita redes de invitados o aislamiento AP).</li>
+            <li data-i18n="console_troubleshoot_p2"><strong>Permiso en iOS (iPhone/iPad):</strong> Verifica en Ajustes > BedrockTogether que el permiso de Red local esté activado.</li>
+            <li data-i18n="console_troubleshoot_p3"><strong>Mantener app abierta:</strong> No cierres la app en tu teléfono mientras juegas; si se cierra, se perderá la conexión LAN.</li>
+            <li data-i18n="console_troubleshoot_p4"><strong>Suscripción online:</strong> Requiere suscripción activa según tu consola (Xbox Game Pass Core, PlayStation Plus o Nintendo Switch Online) y cuenta Microsoft.</li>
+            <li data-i18n="console_troubleshoot_p5"><strong>Si no aparece en la lista:</strong> Pulsa Stop y vuelve a pulsar Run en la app móvil, y espera unos segundos en la pestaña Amigos de la consola.</li>
+          </ul>
+        </details>
+
+        <details class="guide-accordion">
+          <summary data-i18n="console_dns_title">🌐 Otros métodos: Redirección DNS (BedrockConnect)</summary>
+          <div style="margin-top: var(--sp-2); line-height: 1.5;" data-i18n="console_dns_desc">
+            También puedes conectar cambiando la DNS primaria de tu consola por una IP pública de BedrockConnect (ej. 104.238.130.180). Al unirte a cualquier servidor destacado oficial se abrirá una lista para escribir play.racsu.com. Este método puede verse afectado si tu proveedor bloquea DNS externas, por lo que recomendamos BedrockTogether.
+          </div>
+        </details>
       </div>
 
       <!-- Discreet modpack tip -->

@@ -104,22 +104,41 @@ function copyBedrockPort() {
 
 // 4. CONNECTION GUIDE TABS
 function switchGuideTab(tabName) {
-  const javaContent = document.getElementById('guide-java-content');
-  const bedrockContent = document.getElementById('guide-bedrock-content');
-  const tabJava = document.getElementById('tab-btn-java');
-  const tabBedrock = document.getElementById('tab-btn-bedrock');
+  const tabs = ['java', 'bedrock', 'console'];
+  tabs.forEach(t => {
+    const content = document.getElementById(`guide-${t}-content`);
+    const btn = document.getElementById(`tab-btn-${t}`);
+    const isTarget = (t === tabName);
+    if (content) {
+      content.style.display = isTarget ? 'block' : 'none';
+      content.hidden = !isTarget;
+    }
+    if (btn) {
+      btn.classList.toggle('active', isTarget);
+      btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+    }
+  });
+}
 
-  if (tabName === 'bedrock') {
-    if (javaContent) javaContent.style.display = 'none';
-    if (bedrockContent) bedrockContent.style.display = 'grid';
-    if (tabJava) tabJava.classList.remove('active');
-    if (tabBedrock) tabBedrock.classList.add('active');
-  } else {
-    if (javaContent) javaContent.style.display = 'grid';
-    if (bedrockContent) bedrockContent.style.display = 'none';
-    if (tabJava) tabJava.classList.add('active');
-    if (tabBedrock) tabBedrock.classList.remove('active');
-  }
+function initGuideTabs() {
+  const tablist = document.querySelector('.guide-tabs');
+  if (!tablist) return;
+  const tabs = Array.from(tablist.querySelectorAll('.tab-btn'));
+  tablist.addEventListener('keydown', (e) => {
+    let index = tabs.indexOf(document.activeElement);
+    if (index === -1) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      index = (index + 1) % tabs.length;
+      tabs[index].focus();
+      tabs[index].click();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      index = (index - 1 + tabs.length) % tabs.length;
+      tabs[index].focus();
+      tabs[index].click();
+    }
+  });
 }
 
 // 5. YOUTUBE TRAILER FACADE
@@ -279,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(fetchServerStatus, 60000);
 
   initMobileNav();
+  initGuideTabs();
   initTrailerFacade();
   initVotacion();
   initReglas();
