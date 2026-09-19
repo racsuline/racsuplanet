@@ -4,7 +4,7 @@
     {
       "id": "convivencia",
       "nombre": "Convivencia y Comunidad",
-      "icono": "🤝",
+      "icono": "",
       "reglas": [
         {
           "numero": 1,
@@ -31,7 +31,7 @@
     {
       "id": "chat",
       "nombre": "Chat y Comunicación",
-      "icono": "💬",
+      "icono": "",
       "reglas": [
         {
           "numero": 4,
@@ -62,7 +62,7 @@
     {
       "id": "juego",
       "nombre": "Juego y Construcción",
-      "icono": "⚔️",
+      "icono": "",
       "reglas": [
         {
           "numero": 13,
@@ -93,7 +93,7 @@
     {
       "id": "seguridad",
       "nombre": "Seguridad y Menores",
-      "icono": "🛡️",
+      "icono": "",
       "reglas": [
         {
           "numero": 6,

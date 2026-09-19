@@ -81,7 +81,7 @@ function copyText(text, elementId) {
     if (!el) return;
     const orig = el.textContent;
     const lang = (window.detectLanguage ? window.detectLanguage() : 'es');
-    const copiedMsg = (window.I18N_TRANSLATIONS && window.I18N_TRANSLATIONS[lang] && window.I18N_TRANSLATIONS[lang].copied_text) || '¡Copiado! ✔';
+    const copiedMsg = (window.I18N_TRANSLATIONS && window.I18N_TRANSLATIONS[lang] && window.I18N_TRANSLATIONS[lang].copied_text) || '¡Copiado!';
 
     el.textContent = copiedMsg;
     el.style.color = '#ffffff';
@@ -211,7 +211,7 @@ async function initVotacion() {
           <strong>${v.id}. ${v.name}</strong>
           <span>+${v.reward}</span>
         </div>
-        <span class="vote-arrow">➔</span>
+        <span class="vote-arrow">→</span>
       </a>
     `).join('');
   } catch (e) {
@@ -272,7 +272,7 @@ function renderReglas(categorias) {
   container.innerHTML = categorias.map(cat => `
     <div class="rule-category-card">
       <div class="rule-category-header">
-        <h3>${cat.icono || ''} ${cat.nombre}</h3>
+        <h3>${cat.icono ? cat.icono + ' ' : ''}${cat.nombre}</h3>
         <span style="font-size:1.1rem; color:var(--ore-text-dim);">${cat.reglas.length} reglas</span>
       </div>
       <ul class="rule-list">

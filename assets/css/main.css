@@ -734,6 +734,12 @@ body::after {
   color: var(--ore-gold);
 }
 
+.copy-icon {
+  flex-shrink: 0;
+  stroke: currentColor;
+  margin-left: 8px;
+}
+
 .guide-subtip {
   text-align: center;
   margin-top: var(--sp-4);
@@ -930,6 +936,10 @@ body::after {
   font-size: 2rem;
   line-height: 1;
   margin-bottom: var(--sp-1);
+}
+
+.sky-card-icon svg {
+  display: block;
 }
 
 .sky-card h3 {
