@@ -105,19 +105,31 @@ function copyBedrockPort() {
 // 4. CONNECTION GUIDE TABS
 function switchGuideTab(tabName) {
   const tabs = ['java', 'bedrock', 'console'];
+  
+  // Deactivate all tabs and hide panels
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-selected', 'false');
+  });
   tabs.forEach(t => {
     const content = document.getElementById(`guide-${t}-content`);
-    const btn = document.getElementById(`tab-btn-${t}`);
-    const isTarget = (t === tabName);
     if (content) {
-      content.style.display = isTarget ? 'block' : 'none';
-      content.hidden = !isTarget;
-    }
-    if (btn) {
-      btn.classList.toggle('active', isTarget);
-      btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+      content.style.display = 'none';
+      content.hidden = true;
     }
   });
+
+  // Activate target tab and panel
+  const targetContent = document.getElementById(`guide-${tabName}-content`);
+  const targetBtn = document.getElementById(`tab-btn-${tabName}`);
+  if (targetContent) {
+    targetContent.style.display = 'block';
+    targetContent.hidden = false;
+  }
+  if (targetBtn) {
+    targetBtn.classList.add('active');
+    targetBtn.setAttribute('aria-selected', 'true');
+  }
 }
 
 function initGuideTabs() {
