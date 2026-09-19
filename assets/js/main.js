@@ -253,6 +253,23 @@ function initMobileNav() {
       navLinks.classList.remove('nav-links-open');
     });
   });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('nav-links-open')) {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('nav-links-open');
+      toggleBtn.focus();
+    }
+  });
+
+  // Close menu on click outside
+  document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('nav-links-open')) {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('nav-links-open');
+    }
+  });
 }
 
 // DOM READY INITIALIZATION
