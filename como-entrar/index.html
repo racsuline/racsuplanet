@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Entrar a Racsu Planet | Guía Java & Bedrock</title>
+  <meta name="description" content="Guía paso a paso para jugar en Racsu Planet Skyblock en Minecraft Java Edition (26.1.2+) y Bedrock Edition (Puerto 19132).">
+  <link rel="canonical" href="https://racsu.com/como-entrar/">
+  <link rel="icon" href="/resources/logo.png" type="image/png" sizes="32x32">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Cómo Entrar a Racsu Planet | Guía Java & Bedrock">
+  <meta property="og:description" content="Aprende a conectarte a play.racsu.com en 3 pasos en Java o Bedrock Edition.">
+  <meta property="og:image" content="https://racsu.com/assets/og-image.png">
+  <meta property="og:url" content="https://racsu.com/como-entrar/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="/">
+        <img src="/resources/logo.png" alt="Racsu Planet">
+        <span>Racsu Planet</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/" data-i18n="nav_home">Inicio</a>
+        <a class="nav-link active" href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a class="nav-link" href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a class="nav-link" href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a class="nav-link" href="/votar" data-i18n="nav_vote">Votar</a>
+        <a class="nav-link" href="/reglas" data-i18n="nav_rules">Reglas</a>
+        <a class="nav-link" href="https://tienda.racsu.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_store">Tienda</a>
+      </div>
+      <div class="lang-selector-container">
+        <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)" aria-label="Language selector">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-body">
+    <header class="section-header" style="margin-top: 48px;">
+      <span class="line"></span>
+      <h1 style="font-size: 2.2rem; color: var(--ore-orange); text-transform: uppercase; letter-spacing: 2px;">Cómo Entrar en 3 Pasos</h1>
+      <span class="line"></span>
+    </header>
+
+    <div class="guide-container">
+      <div class="guide-tabs">
+        <button class="tab-btn active" id="tab-btn-java" onclick="switchGuideTab('java')" data-i18n="guide_tab_java">Java Edition</button>
+        <button class="tab-btn" id="tab-btn-bedrock" onclick="switchGuideTab('bedrock')" data-i18n="guide_tab_bedrock">Bedrock (Móvil/Win10)</button>
+      </div>
+
+      <!-- Java Steps -->
+      <div class="steps-grid" id="guide-java-content">
+        <div class="step-card">
+          <span class="step-badge">Paso 1</span>
+          <h3 data-i18n="guide_step1_java_title">Abre Minecraft Java</h3>
+          <p data-i18n="guide_step1_java_desc">Inicia tu cliente oficial en versión 26.1.2 o superior.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-badge">Paso 2</span>
+          <h3 data-i18n="guide_step2_java_title">Añadir Servidor</h3>
+          <p data-i18n="guide_step2_java_desc">Entra a Multijugador > Añadir Servidor y escribe la IP:</p>
+          <button class="copy-pill-btn" onclick="copyIP()">
+            <strong id="ip-text">play.racsu.com</strong>
+            <span>📋</span>
+          </button>
+        </div>
+        <div class="step-card">
+          <span class="step-badge">Paso 3</span>
+          <h3 data-i18n="guide_step3_java_title">¡A Jugar!</h3>
+          <p data-i18n="guide_step3_java_desc">Guarda y conéctate. ¡Tu isla flotante te espera!</p>
+        </div>
+      </div>
+
+      <!-- Bedrock Steps -->
+      <div class="steps-grid" id="guide-bedrock-content" style="display: none;">
+        <div class="step-card">
+          <span class="step-badge">Paso 1</span>
+          <h3 data-i18n="guide_step1_bedrock_title">Abre Minecraft Bedrock</h3>
+          <p data-i18n="guide_step1_bedrock_desc">Desde Windows 10/11, Android o iOS con cuenta oficial.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-badge">Paso 2</span>
+          <h3 data-i18n="guide_step2_bedrock_title">Añadir a Servidores</h3>
+          <p data-i18n="guide_step2_bedrock_desc">Pestaña Servidores > Añadir Servidor. Ingresa la IP y el Puerto:</p>
+          <button class="copy-pill-btn" onclick="copyIP()" style="margin-bottom: 6px;">
+            <span>IP: <strong>play.racsu.com</strong></span>
+            <span>📋</span>
+          </button>
+          <button class="copy-pill-btn" onclick="copyBedrockPort()">
+            <span>Puerto: <strong id="port-text">19132</strong></span>
+            <span>📋</span>
+          </button>
+        </div>
+        <div class="step-card">
+          <span class="step-badge">Paso 3</span>
+          <h3 data-i18n="guide_step3_bedrock_title">Conéctate</h3>
+          <p data-i18n="guide_step3_bedrock_desc">Presiona Jugar y comienza tu aventura en Skyblock.</p>
+        </div>
+      </div>
+
+      <!-- Modpack Extra -->
+      <div class="step-modpack-extra">
+        <p data-i18n="guide_modpack_tip">Paso Extra (Opcional): Instala el modpack oficial Racsu Planet+ para máxima optimización.</p>
+        <a href="https://modrinth.com/modpack/racsu-planet" target="_blank" rel="noopener noreferrer" class="mc-btn sky-btn" style="padding: 6px 14px; font-size: 1.1rem;">
+          <span data-i18n="guide_modpack_btn">Descargar Modpack</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Notice about Consoles (TODO pending confirmation) -->
+    <div style="margin-top: 24px; padding: 14px 18px; background: rgba(0,0,0,0.3); border: 1px dashed var(--ore-border); font-size: 1.05rem; color: var(--ore-text-dim);">
+      📌 <strong>Consolas (Xbox, PlayStation, Nintendo Switch):</strong> Próximamente se publicará el método oficial de conexión para consolas una vez sea verificado.
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">
+          <img src="/resources/logo.png" alt="Racsu Planet">
+          <span>Racsu Planet</span>
+        </a>
+        <p data-i18n="footer_brand_desc">Servidor de Minecraft Skyblock compatible con Java y Bedrock Edition.</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_links_title">Links Rápidos</h3>
+        <a href="/como-entrar" data-i18n="nav_how_to_join">Cómo Entrar</a>
+        <a href="/skyblock" data-i18n="nav_skyblock">Skyblock</a>
+        <a href="/modpack" data-i18n="nav_modpack">Modpack</a>
+        <a href="/votar" data-i18n="nav_vote">Votar</a>
+        <a href="/reglas" data-i18n="nav_rules">Reglas</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_community_title">Comunidad</h3>
+        <a href="https://discord.racsu.com" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://www.youtube.com/@RacsuPlanet" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://modrinth.com/server/racsuplanet" target="_blank" rel="noopener noreferrer">Modrinth</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer_server_title">Servidor</h3>
+        <p style="color:var(--ore-sky); font-size:1.1rem;">play.racsu.com</p>
+        <p style="color:var(--ore-text-dim); font-size:1rem; margin-top:4px;">Java & Bedrock (19132)</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer" id="disclaimer" data-i18n="footer_disclaimer" data-i18n-html="true"><span class="hl-star">*</span> Servidor <span class="hl-gold">Premium</span>: requiere una cuenta legal de Minecraft para jugar (no compatible con versiones crackeadas o pirateadas).</p>
+      <p data-i18n="footer_copyright">© 2026 Racsu Planet. No afiliado con Mojang AB ni Microsoft. Contacto: me@racsu.com</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
